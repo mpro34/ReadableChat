@@ -6,7 +6,7 @@ This is a web-based forum application (similar to Reddit) build with React & Red
 
 ### API Backend Server
 ```bash
-git clone htttt
+git clone https://github.com/mpro34/ReadableChat.git
 cd api-server
 npm install
 ```
