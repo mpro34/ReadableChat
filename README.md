@@ -4,23 +4,17 @@ This is a web-based forum application (similar to Reddit) build with React & Red
 
 ## Installation
 
-### API Backend Server
+### API Backend Server - Port 3001
 ```bash
 git clone https://github.com/mpro34/ReadableChat.git
 cd api-server
 npm install
-```
-* Start the backend server on port 3001
-```bash
 node server
 ```
-### API Backend Server
+### Frontend - Port 3000
 ```bash
 cd ../frontend
 npm install
-```
-* Start the frontend on port 3000
-```bash
 npm start
 ```
 
