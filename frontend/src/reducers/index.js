@@ -1,3 +1,4 @@
+import { combineReducers } from 'redux';
 import { GET_ALL_POSTS } from '../actions';
 
 const initialPosts = {
@@ -11,6 +12,13 @@ const initialPosts = {
     author: 'John Smith',
     body: 'This is John smith\'s post body'
   }
+};
+
+const initialCategories = {
+  scifi: [
+    'post1',
+    'post2'
+  ]
 }
 
 function post(state = initialPosts, action) {
@@ -22,4 +30,14 @@ function post(state = initialPosts, action) {
   }
 }
 
-export default post;
+function category(state = initialCategories, action) {
+  switch(action.type) {
+    default:
+      return state;
+  }
+}
+
+export default combineReducers({
+  post,
+  category
+});
