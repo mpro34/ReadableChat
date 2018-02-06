@@ -1,5 +1,19 @@
 import { combineReducers } from 'redux';
-import { GET_ALL_POSTS } from '../actions';
+import {
+  GET_ALL_POSTS,
+  ADD_POST,
+  DELETE_POST,
+  EDIT_POST,
+  GET_ONE_POST,
+
+  GET_ALL_CATEGORIES,
+  GET_ONE_CATEGORY,
+
+  GET_ALL_COMMENTS,
+  EDIT_COMMENT,
+  ADD_COMMENT,
+  DELETE_COMMENT
+} from '../actions';
 
 const initialPosts = {
   post1: {
