@@ -21,7 +21,11 @@ const initialCategories = {
   ]
 }
 
-//Use return Object.assign({}, state, { new state }) In Redecuers!!
+//TODO
+// 1. Create Reducers below for each action in actions/index.js
+// 2. Use Dispatch on reducers
+
+//Use return Object.assign({}, state, { new state }) In Reducers!!
 function post(state = initialPosts, action) {
   switch(action.type) {
     case GET_ALL_POSTS:
