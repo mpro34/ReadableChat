@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { Switch } from 'react-router';
 import Category from './components/Category';
 import PostDetail from './components/PostDetail';

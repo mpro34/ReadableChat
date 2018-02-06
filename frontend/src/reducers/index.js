@@ -21,6 +21,7 @@ const initialCategories = {
   ]
 }
 
+//Use return Object.assign({}, state, { new state }) In Redecuers!!
 function post(state = initialPosts, action) {
   switch(action.type) {
     case GET_ALL_POSTS:
