@@ -35,23 +35,13 @@ const App = ({posts, getPosts}) => {
     );
 }
 
-// fetch('http://localhost:3001/posts', {
-//   method: "GET",
-//   headers: {
-//     "Content-Type": "application/json",
-//     "Authorization": "Basic " + new Buffer("chris:password", "utf8").toString("base64")
-//   },
-//   credentials: "same-origin"
-// }).then(function(response) {
-//   console.log(response.status)     //=> number 100–599
-//   console.log(response.statusText) //=> String
-//   console.log(response.headers)    //=> Headers
-//   console.log(JSON.stringify(response))        //=> String
-//
-//   //return response.text()
-// }, function(error) {
-//   console.log(error.message) //=> String
-// })
+fetch('http://localhost:3001/categories', {
+  headers: {
+    Authorization: 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
+  }
+}).then(res => res.json())
+  .then(data => console.log(`output = ${JSON.stringify(data)}`))
+  .catch(err => console.log(`error occ = ${err}`))
 
 
 const mapStateToProps = state => {
