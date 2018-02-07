@@ -36,3 +36,37 @@ class App extends Component {
 
 // TODO: Add mapStateToProps & mapStateToDispatch after reducers are ready
 export default connect()(App);
+
+/* GOOD example of connect redux
+----------------------------------
+import {connect} from 'react-redux'
+
+const TodoItem = ({todo, destroyTodo}) => {
+  return (
+    <div>
+      {todo.text}
+      <span onClick={destroyTodo}> x </span>
+    </div>
+  )
+}
+
+const mapStateToProps = state => {
+  return {
+    todo : state.todos[0]
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    destroyTodo : () => dispatch({
+      type : 'DESTROY_TODO'
+    })
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoItem)
+----------------------------------
+*/
