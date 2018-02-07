@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Category extends Component {
   render() {
@@ -8,4 +9,5 @@ class Category extends Component {
   };
 };
 
-export default Category;
+// TODO: Add mapStateToProps & mapStateToDispatch after reducers are ready
+export default connect()(Category);

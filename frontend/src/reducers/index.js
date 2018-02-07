@@ -35,11 +35,9 @@ const initialCategories = {
   ]
 }
 
-//TODO
-// 1. Create Reducers below for each action in actions/index.js
-// 2. Use Dispatch on reducers
+//TODO: use Postman to simulate all actions below
 
-//Use return Object.assign({}, state, { new state }) In Reducers!!
+// TODO: Use postman results to fill out the return for each case in post!
 function post(state = initialPosts, action) {
   switch(action.type) {
     case GET_ALL_POSTS:
@@ -57,6 +55,7 @@ function post(state = initialPosts, action) {
   }
 }
 
+// TODO: Use postman results to fill out the return for each case in category!
 function category(state = initialCategories, action) {
   switch(action.type) {
     case GET_ALL_CATEGORIES:
@@ -68,6 +67,7 @@ function category(state = initialCategories, action) {
   }
 }
 
+// TODO: Use postman results to fill out the return for each case in comment!
 function comment(state = {}, action) {
   switch(action.type) {
     case GET_ALL_COMMENTS:

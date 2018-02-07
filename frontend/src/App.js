@@ -7,6 +7,7 @@ import { Switch } from 'react-router';
 import Category from './components/Category';
 import PostDetail from './components/PostDetail';
 import NoMatch from './components/NoMatch';
+import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
@@ -33,4 +34,5 @@ class App extends Component {
   }
 }
 
-export default App;
+// TODO: Add mapStateToProps & mapStateToDispatch after reducers are ready
+export default connect()(App);
