@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -8,9 +8,10 @@ import Category from './components/Category';
 import PostDetail from './components/PostDetail';
 import NoMatch from './components/NoMatch';
 import { connect } from 'react-redux';
+import fetch from 'node-fetch';
 
-class App extends Component {
-  render() {
+const App = ({posts, getPosts}) => {
+    console.log(`Within App - state: ${JSON.stringify(posts)}`)
     return (
       <div className="App">
         <Switch>
@@ -23,6 +24,7 @@ class App extends Component {
               <p className="App-intro">
                 To get started, edit <code>src/App.js</code> and save to reload.
               </p>
+              <button onClick={getPosts}> ClickMe </button>
           </div>
           )}/>
           <Route path='/category' component={Category} />
@@ -31,11 +33,43 @@ class App extends Component {
         </Switch>
       </div>
     );
+}
+
+// fetch('http://localhost:3001/posts', {
+//   method: "GET",
+//   headers: {
+//     "Content-Type": "application/json",
+//     "Authorization": "Basic " + new Buffer("chris:password", "utf8").toString("base64")
+//   },
+//   credentials: "same-origin"
+// }).then(function(response) {
+//   console.log(response.status)     //=> number 100–599
+//   console.log(response.statusText) //=> String
+//   console.log(response.headers)    //=> Headers
+//   console.log(JSON.stringify(response))        //=> String
+//
+//   //return response.text()
+// }, function(error) {
+//   console.log(error.message) //=> String
+// })
+
+
+const mapStateToProps = state => {
+  return {
+    posts: {...state}
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getPosts: () => dispatch({
+      type: 'GET_ALL_POSTS'
+    })
   }
 }
 
 // TODO: Add mapStateToProps & mapStateToDispatch after reducers are ready
-export default connect()(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 /* GOOD example of connect redux
 ----------------------------------

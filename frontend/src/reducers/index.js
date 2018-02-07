@@ -27,21 +27,23 @@ const initialPosts = {
     body: 'This is John smith\'s post body'
   }
 };
-
-const initialCategories = {
-  scifi: [
-    'post1',
-    'post2'
-  ]
-}
+//
+// const initialCategories = {
+//   scifi: [
+//     'post1',
+//     'post2'
+//   ]
+// }
 
 //TODO: use Postman to simulate all actions below
 
 // TODO: Use postman results to fill out the return for each case in post!
-function post(state = initialPosts, action) {
+function posts(state = initialPosts, action) {
   switch(action.type) {
     case GET_ALL_POSTS:
-      return { ...state };
+      console.log(`GET_ALL_POSTS reducer called: ${JSON.stringify(state)}`)
+      console.log(`GET_ALL_POSTS actions: ${JSON.stringify(action)}`)
+      return [...state];
     case ADD_POST:
       return {};
     case DELETE_POST:
@@ -56,10 +58,10 @@ function post(state = initialPosts, action) {
 }
 
 // TODO: Use postman results to fill out the return for each case in category!
-function category(state = initialCategories, action) {
+function categories(state = {}, action) {
   switch(action.type) {
     case GET_ALL_CATEGORIES:
-      return {};
+      return { ...state };
     case GET_ONE_CATEGORY:
       return {};
     default:
@@ -68,7 +70,7 @@ function category(state = initialCategories, action) {
 }
 
 // TODO: Use postman results to fill out the return for each case in comment!
-function comment(state = {}, action) {
+function comments(state = {}, action) {
   switch(action.type) {
     case GET_ALL_COMMENTS:
       return {};
@@ -84,7 +86,7 @@ function comment(state = {}, action) {
 }
 
 export default combineReducers({
-  post,
-  category,
-  comment
+  posts,
+  categories,
+  comments
 });

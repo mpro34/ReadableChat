@@ -13,6 +13,8 @@ const store = createStore(
   applyMiddleware(thunk)
 );
 
+console.log(`Main store vals: ${JSON.stringify(store.getState())}`);
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
