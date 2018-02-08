@@ -72,9 +72,13 @@ function posts(state = initialPosts, action) {
 
 // TODO: Use postman results to fill out the return for each case in category!
 function categories(state = initialCategories, action) {
+  const { categories } = action;
   switch(action.type) {
     case GET_ALL_CATEGORIES:
-      return state;
+      return {
+        ...state,
+        name: "BillyBob"
+      };
     case GET_ONE_CATEGORY:
       return {};
     default:

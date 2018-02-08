@@ -3,8 +3,13 @@ import shortid from 'shortid';
 import { connect } from 'react-redux';
 import Category from './Category';
 import { Link } from 'react-router-dom';
+import fetch from 'node-fetch';
+import { fetchCategories } from '../actions';
 
 class Root extends Component {
+  // doThing = () => {
+  //   this.props.dispatch(fetchCategories({}))
+  // }
   render() {
     return (
       <div>
@@ -21,7 +26,7 @@ class Root extends Component {
             ))
           }
         </div>
-
+        <button onClick={this.props.fetchCA}> Get Categories </button>
         <div>
           <Link to="/category">Category</Link>
         </div>
@@ -34,6 +39,14 @@ class Root extends Component {
     )
   }
 }
+//
+// fetch('http://localhost:3001/categories', {
+//   headers: {
+//     Authorization: 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
+//   }
+// }).then(res => res.json())
+//   .then(data => console.log(`output = ${JSON.stringify(data)}`))
+//   .catch(err => console.log(`error occ = ${err}`))
 
 const mapStateToProps = state => {
   return {
@@ -42,4 +55,19 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, null)(Root)
+function mapDispatchToProps (dispatch) {
+  return {
+    fetchCA: () => dispatch(fetchCategories())
+  }
+}
+// const mapDispatchToProps = dispatch => ({
+//   apiGetCategories: () => dispatch(fetchCategories())
+// });
+// const mapDispatchToProps = dispatch => {
+//   // return {
+//     // apiGetCategories: () => dispatch({
+//     //   type: 'GET_ALL_CATEGORIES'
+//     // }),
+// }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Root)

@@ -1,3 +1,5 @@
+import * as ServerAPIUtil from '../utils/server_api_fetch';
+
 export const GET_ALL_POSTS = 'GET_ALL_POSTS';
 export const ADD_POST = 'ADD_POST';
 export const DELETE_POST = 'DELETE_POST';
@@ -45,12 +47,20 @@ export function getOnePost({ post }) {
 }
 
 //Action Creators for Categories
-export function getAllCategories({ categories }) {
-  return {
+export const getAllCategories = categories => ({
     type: GET_ALL_CATEGORIES,
     categories
-  }
-}
+});
+
+export const fetchCategories = () => dispatch => (
+  ServerAPIUtil
+  .fetchCategories()
+  .then(categories => {
+    dispatch(getAllCategories(categories))
+  })
+);
+//
+
 export function getOneCategory({ category }) {
   return {
     type: GET_ONE_CATEGORY,

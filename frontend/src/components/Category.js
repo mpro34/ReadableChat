@@ -4,6 +4,7 @@ import shortid from 'shortid';
 
 class Category extends Component {
   render() {
+    console.log(`Categories PROPS = ${this.props}`)
     return (
       <div>
         <h5>{this.props.title}</h5>

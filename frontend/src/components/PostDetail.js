@@ -4,7 +4,6 @@ import shortid from 'shortid';
 
 class PostDetail extends Component {
   render() {
-    console.log(`post detail props = ${JSON.stringify(this.props)}`)
     return (
       <div>
         <h1>Post Title</h1>
