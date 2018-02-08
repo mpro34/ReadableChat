@@ -15,25 +15,40 @@ import {
   DELETE_COMMENT
 } from '../actions';
 
-const initialPosts = {
-  post1: {
+const initialPosts = [
+  {
     title: 'first post!',
     author: 'chris',
     body: 'This is the body of my first post'
   },
-  post2: {
+  {
     title: 'less important post!',
     author: 'John Smith',
     body: 'This is John smith\'s post body'
   }
-};
-//
-// const initialCategories = {
-//   scifi: [
-//     'post1',
-//     'post2'
-//   ]
-// }
+];
+
+const initialCategories = [
+  {
+    "name": "Chris",
+    "path": "www"
+  },
+  {
+    "name": "Joel",
+    "path": "gov"
+  }
+]
+
+const initialComments = [
+  {
+    body: 'This is the body of my first comment',
+    author: 'the thing'
+  },
+  {
+    body: 'COMMENT by patrick star!!!',
+    author: 'spongebob'
+  }
+];
 
 //TODO: use Postman to simulate all actions below
 
@@ -41,9 +56,7 @@ const initialPosts = {
 function posts(state = initialPosts, action) {
   switch(action.type) {
     case GET_ALL_POSTS:
-      console.log(`GET_ALL_POSTS reducer called: ${JSON.stringify(state)}`)
-      console.log(`GET_ALL_POSTS actions: ${JSON.stringify(action)}`)
-      return [...state];
+      return state;
     case ADD_POST:
       return {};
     case DELETE_POST:
@@ -58,10 +71,10 @@ function posts(state = initialPosts, action) {
 }
 
 // TODO: Use postman results to fill out the return for each case in category!
-function categories(state = {}, action) {
+function categories(state = initialCategories, action) {
   switch(action.type) {
     case GET_ALL_CATEGORIES:
-      return { ...state };
+      return state;
     case GET_ONE_CATEGORY:
       return {};
     default:
@@ -70,10 +83,10 @@ function categories(state = {}, action) {
 }
 
 // TODO: Use postman results to fill out the return for each case in comment!
-function comments(state = {}, action) {
+function comments(state = initialComments, action) {
   switch(action.type) {
     case GET_ALL_COMMENTS:
-      return {};
+      return state;
     case EDIT_COMMENT:
       return {};
     case ADD_COMMENT:
