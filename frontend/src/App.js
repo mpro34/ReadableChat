@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { Switch } from 'react-router';
 import Category from './components/Category';
 import PostDetail from './components/PostDetail';
 import NoMatch from './components/NoMatch';
+import Root from './components/Root';
 import { connect } from 'react-redux';
 import fetch from 'node-fetch';
-import shortid from 'shortid';
 
 class App extends Component {
   render() {
@@ -17,46 +16,7 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route exact path='/' render={() => (
-            <div>
-              <div>
-                <h1>Readable</h1>
-              </div>
-              <div>
-                <h3>Categories</h3>
-                {
-                  this.props.categories.map(category => (
-                    <div key={shortid.generate()} className="section">
-                      <Category title={category.name}/>
-                    </div>
-                  ))
-                }
-                  {/* {
-                    this.props.categories.map(cat => (
-                      <li key={shortid.generate()}>
-                        CATEGORY: {cat.name}, {cat.path}
-                        <div>
-                          <ol>
-                            {this.props.posts.map(post => (
-                            <li key={shortid.generate()}>
-                              POST: { post.title }
-                            </li>
-                            ))}
-                          </ol>
-                        </div>
-                      </li>
-                    ))
-                  } */}
-
-              </div>
-              <div>
-                <Link to="/category">Category</Link>
-              </div>
-              <div>
-                <Link to="/postdetail">PostDetail</Link>
-              </div>
-            </div>
-          )}/>
+          <Route exact path='/' component={Root} />
           {/*TODO: Pass in a single Category as a prop!!!*/}
           <Route path='/category' component={Category} />
           {/*TODO: Pass in a single Post as a prop!!!*/}
