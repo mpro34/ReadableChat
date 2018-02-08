@@ -6,16 +6,16 @@ class Category extends Component {
   render() {
     return (
       <div>
-        <h1>Category Title</h1>
-        <ol>
+        <h5>{this.props.title}</h5>
           {
-            this.props.posts.map(post => (
-              <li key={shortid.generate()}>
-                {post.title}
-              </li>
-            ))
+            <div className="container">
+              {this.props.posts.map(post => (
+                <p key={shortid.generate()} className="flat-text small">
+                  Post Title: {post.title}
+                </p>
+              ))}
+            </div>
           }
-        </ol>
       </div>
 
     )

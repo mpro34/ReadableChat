@@ -4,18 +4,19 @@ import shortid from 'shortid';
 
 class PostDetail extends Component {
   render() {
+    console.log(`post detail props = ${JSON.stringify(this.props)}`)
     return (
       <div>
         <h1>Post Title</h1>
-        <ol>
-        {
-          this.props.comments.map(comment => (
-            <li key={shortid.generate()}>
-              {comment.title}
-            </li>
-          ))
-        }
-      </ol>
+        <div className="container">
+          {
+            this.props.comments.map(comment => (
+              <div key={shortid.generate()} className="flat-text small">
+                <p> {comment.body} </p>
+              </div>
+            ))
+          }
+        </div>
       </div>
     )
   };

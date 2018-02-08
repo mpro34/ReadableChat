@@ -24,8 +24,14 @@ class App extends Component {
               </div>
               <div>
                 <h3>Categories</h3>
-                <ul>
-                  {
+                {
+                  this.props.categories.map(category => (
+                    <div key={shortid.generate()} className="section">
+                      <Category title={category.name}/>
+                    </div>
+                  ))
+                }
+                  {/* {
                     this.props.categories.map(cat => (
                       <li key={shortid.generate()}>
                         CATEGORY: {cat.name}, {cat.path}
@@ -40,8 +46,8 @@ class App extends Component {
                         </div>
                       </li>
                     ))
-                  }
-                </ul>
+                  } */}
+
               </div>
               <div>
                 <Link to="/category">Category</Link>
