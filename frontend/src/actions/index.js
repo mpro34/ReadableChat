@@ -1,4 +1,5 @@
 import * as ServerAPIUtil from '../utils/server_api_fetch';
+import axios from 'axios';
 
 export const GET_ALL_POSTS = 'GET_ALL_POSTS';
 export const ADD_POST = 'ADD_POST';
@@ -14,11 +15,25 @@ export const EDIT_COMMENT = 'EDIT_COMMENT';
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const DELETE_COMMENT = 'DELETE_COMMENT';
 
+export function selectCategory({ categories }) {
+  return {
+    type: 'SELECT_CATEGORY',
+    payload: categories
+  }
+}
+
 //Action Creators for Posts
-export function getAllPosts({ posts }) {
+const postURL = 'http://localhost:3001/posts';
+
+export function getAllPosts() {
+  const request = axios.get(postURL, {
+    headers: {
+      Authorization: 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
+    }
+  });
   return {
     type: GET_ALL_POSTS,
-    posts
+    payload: request
   }
 }
 export function addPost({ post }) {

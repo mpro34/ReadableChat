@@ -56,7 +56,8 @@ const initialComments = [
 function posts(state = initialPosts, action) {
   switch(action.type) {
     case GET_ALL_POSTS:
-      return state;
+      console.log('Get_all_posts action:', action.payload.data);
+      return [ ...state, ...action.payload.data ];
     case ADD_POST:
       return {};
     case DELETE_POST:
@@ -74,6 +75,9 @@ function posts(state = initialPosts, action) {
 function categories(state = initialCategories, action) {
   const { categories } = action;
   switch(action.type) {
+    case 'SELECT_CATEGORY':
+      return action.payload;
+
     case GET_ALL_CATEGORIES:
       return {
         ...state,

@@ -8,12 +8,24 @@ import PostDetail from './components/PostDetail';
 import NoMatch from './components/NoMatch';
 import Root from './components/Root';
 
+import { getAllPosts } from './actions';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import PostList from './containers/post_list';
+
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Switch>
-          <Route exact path='/' component={Root} />
+          <Route exact path='/' render={() => (
+          <div>
+            Root Page
+            <PostList />
+            <button onClick={() => this.props.getAllPosts()} className="btn btn-secondary">Fetch Posts</button>
+          </div>
+          )}/>
           {/*TODO: Pass in a single Category as a prop!!!*/}
           <Route path='/category' component={Category} />
           {/*TODO: Pass in a single Post as a prop!!!*/}
@@ -25,8 +37,18 @@ class App extends Component {
   };
 }
 
+function mapStateToProps(state) {
+  return {
+    posts: state.posts
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ getAllPosts }, dispatch)
+}
+
 // TODO: Add mapStateToProps & mapStateToDispatch after reducers are ready
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 /* GOOD example of connect redux
 ----------------------------------
