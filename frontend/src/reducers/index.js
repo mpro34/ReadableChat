@@ -59,7 +59,8 @@ function posts(state = initialPosts, action) {
       console.log('Get_all_posts action:', action.payload.data);
       return [ ...state, ...action.payload.data ];
     case ADD_POST:
-      return {};
+      console.log('Add_post action:', action.payload.data);
+      return state;
     case DELETE_POST:
       return {};
     case EDIT_POST:

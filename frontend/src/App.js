@@ -8,7 +8,7 @@ import PostDetail from './components/PostDetail';
 import NoMatch from './components/NoMatch';
 import Root from './components/Root';
 
-import { getAllPosts } from './actions';
+import { getAllPosts, addPost } from './actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -24,6 +24,7 @@ class App extends Component {
             Root Page
             <PostList />
             <button onClick={() => this.props.getAllPosts()} className="btn btn-secondary">Fetch Posts</button>
+            <button onClick={() => this.props.addPost()} className="btn btn-secondary">Create New Post</button>
           </div>
           )}/>
           {/*TODO: Pass in a single Category as a prop!!!*/}
@@ -44,7 +45,10 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ getAllPosts }, dispatch)
+  return {
+    getAllPosts: bindActionCreators(getAllPosts, dispatch),
+    addPost: bindActionCreators(addPost, dispatch)
+  }
 }
 
 // TODO: Add mapStateToProps & mapStateToDispatch after reducers are ready

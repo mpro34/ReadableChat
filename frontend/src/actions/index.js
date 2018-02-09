@@ -23,10 +23,11 @@ export function selectCategory({ categories }) {
 }
 
 //Action Creators for Posts
-const postURL = 'http://localhost:3001/posts';
+const posts_getURL = 'http://localhost:3001/posts';
+const posts_addURL = 'http://localhost:3001/posts';
 
 export function getAllPosts() {
-  const request = axios.get(postURL, {
+  const request = axios.get(posts_getURL, {
     headers: {
       Authorization: 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
     }
@@ -36,10 +37,32 @@ export function getAllPosts() {
     payload: request
   }
 }
-export function addPost({ post }) {
+
+let axiosConfig = {
+  headers: {
+    'Authorization': 'Basic YWxhZGRpbjpvcGVuc2VzYW1l',
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'Access-Control-Allow-Origin': '*'
+  }
+};
+
+let postData = {
+  id: '8xf0y6ziyjabvozddggggg',
+  timestamp: Date.now(),
+  title: 'Post created by action title',
+  body: 'This post was created by an action!!',
+  author: 'Chris Whiting G',
+  category: 'react1'
+};
+
+export function addPost() {
+  const response = axios.post(posts_addURL, postData, axiosConfig);
+
+  console.log('Response in addPost: ', response);
+
   return {
     type: ADD_POST,
-    post
+    payload: response
   }
 }
 export function deletePost({ post }) {
