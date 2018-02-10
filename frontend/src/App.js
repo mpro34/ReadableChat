@@ -4,7 +4,6 @@ import './App.css';
 import { Route } from 'react-router-dom';
 import { Switch } from 'react-router';
 import Category from './components/Category';
-import PostDetail from './components/PostDetail';
 import NoMatch from './components/NoMatch';
 // import Root from './components/Root';
 
@@ -12,7 +11,6 @@ import { getAllPosts, addPost } from './actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import PostList from './containers/post_list';
 import MainContainer from './containers/MainContainer';
 
 class App extends Component {
@@ -31,7 +29,6 @@ class App extends Component {
           {/*TODO: Pass in a single Category as a prop!!!*/}
           <Route path='/category' component={Category} />
           {/*TODO: Pass in a single Post as a prop!!!*/}
-          <Route path='/postdetail' component={PostDetail} />
           <Route component={NoMatch} status={404} />
         </Switch>
       </div>
@@ -39,21 +36,8 @@ class App extends Component {
   };
 }
 
-function mapStateToProps(state) {
-  return {
-    posts: state.posts
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    getAllPosts: bindActionCreators(getAllPosts, dispatch),
-    addPost: bindActionCreators(addPost, dispatch)
-  }
-}
-
 // TODO: Add mapStateToProps & mapStateToDispatch after reducers are ready
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
 
 /* GOOD example of connect redux
 ----------------------------------

@@ -53,7 +53,7 @@ const initialComments = [
 //TODO: use Postman to simulate all actions below
 
 // TODO: Use postman results to fill out the return for each case in post!
-function posts(state = initialPosts, action) {
+function posts(state = [], action) {
   switch(action.type) {
     case GET_ALL_POSTS:
       console.log('Get_all_posts action:', action.payload.data);
@@ -73,13 +73,13 @@ function posts(state = initialPosts, action) {
 }
 
 // TODO: Use postman results to fill out the return for each case in category!
-function categories(state = initialCategories, action) {
+function categories(state = [], action) {
   switch(action.type) {
     case 'SELECT_CATEGORY':
       return action.payload;
     case GET_ALL_CATEGORIES:
     console.log('Get_all_categories action:', action.payload.data);
-      return [ ...state, ...action.payload.data ];
+      return [ ...state, ...action.payload.data.categories ];
     case GET_ONE_CATEGORY:
       return {};
     default:
