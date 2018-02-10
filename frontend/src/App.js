@@ -8,9 +8,9 @@ import NoMatch from './components/NoMatch';
 import PostsNew from './components/PostsNew';
 // import Root from './components/Root';
 
-import { getAllPosts, addPost } from './actions';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+// // import { getAllPosts, addPost } from './actions';
+// // import { bindActionCreators } from 'redux';
+// import { connect } from 'react-redux';
 
 import MainContainer from './containers/MainContainer';
 

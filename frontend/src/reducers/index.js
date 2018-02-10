@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 import {
   GET_ALL_POSTS,
   ADD_POST,
@@ -15,29 +16,29 @@ import {
   DELETE_COMMENT
 } from '../actions';
 
-const initialPosts = [
-  {
-    title: 'first post!',
-    author: 'chris',
-    body: 'This is the body of my first post'
-  },
-  {
-    title: 'less important post!',
-    author: 'John Smith',
-    body: 'This is John smith\'s post body'
-  }
-];
-
-const initialCategories = [
-  {
-    "name": "Chris",
-    "path": "www"
-  },
-  {
-    "name": "Joel",
-    "path": "gov"
-  }
-]
+// const initialPosts = [
+//   {
+//     title: 'first post!',
+//     author: 'chris',
+//     body: 'This is the body of my first post'
+//   },
+//   {
+//     title: 'less important post!',
+//     author: 'John Smith',
+//     body: 'This is John smith\'s post body'
+//   }
+// ];
+//
+// const initialCategories = [
+//   {
+//     "name": "Chris",
+//     "path": "www"
+//   },
+//   {
+//     "name": "Joel",
+//     "path": "gov"
+//   }
+// ]
 
 const initialComments = [
   {
@@ -106,5 +107,6 @@ function comments(state = initialComments, action) {
 export default combineReducers({
   posts,
   categories,
-  comments
+  comments,
+  form: formReducer
 });
