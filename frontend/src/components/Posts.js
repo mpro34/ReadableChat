@@ -8,10 +8,12 @@ class Posts extends Component {
       <div>
         <h2>Posts Component</h2>
         {this.props.posts.map(post => (
-          <Post
-            key={shortid.generate()}
-            title={post.title}
-          />
+          <ul className="list-group">
+            <Post
+              key={shortid.generate()}
+              title={post.title}
+            />
+        </ul>
         ))}
       </div>
     )

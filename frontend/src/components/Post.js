@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class Post extends Component {
   render() {
     return (
-      <div>
+      <li className="list-group-item">
         {this.props.title}
-      </div>
+      </li>
     );
   };
 }

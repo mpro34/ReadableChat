@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import { getAllPosts, getAllCategories } from '../actions';
+import { Link } from 'react-router-dom';
 
 import Categories from '../components/Categories';
 import Posts from '../components/Posts';
@@ -15,7 +16,14 @@ class MainContainer extends Component {
   render() {
     return (
       <div>
+        <div className="text-xs-right">
+          <Link className="btn btn-primary" to="/posts/new">
+            Add a Post
+          </Link>
+        </div>
         <h1>Main Container!</h1>
+        <button onClick={() => this.props.get_posts()}> Posts</button>
+        <button onClick={() => this.props.get_categories()}> Categories</button>
         <Categories
           categories={this.props.categories}
         />
