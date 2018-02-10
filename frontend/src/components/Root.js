@@ -3,7 +3,6 @@ import shortid from 'shortid';
 import { connect } from 'react-redux';
 import Category from './Category';
 import { Link } from 'react-router-dom';
-import fetch from 'node-fetch';
 import { fetchCategories } from '../actions';
 
 class Root extends Component {
@@ -50,7 +49,6 @@ class Root extends Component {
 
 const mapStateToProps = state => {
   return {
-    categories: state.categories,
     posts: state.posts
   }
 }

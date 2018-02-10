@@ -6,7 +6,7 @@ import { Switch } from 'react-router';
 import Category from './components/Category';
 import PostDetail from './components/PostDetail';
 import NoMatch from './components/NoMatch';
-import Root from './components/Root';
+// import Root from './components/Root';
 
 import { getAllPosts, addPost } from './actions';
 import { bindActionCreators } from 'redux';
