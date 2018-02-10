@@ -77,12 +77,9 @@ function categories(state = initialCategories, action) {
   switch(action.type) {
     case 'SELECT_CATEGORY':
       return action.payload;
-
     case GET_ALL_CATEGORIES:
-      return {
-        ...state,
-        name: "BillyBob"
-      };
+    console.log('Get_all_categories action:', action.payload.data);
+      return [ ...state, ...action.payload.data ];
     case GET_ONE_CATEGORY:
       return {};
     default:

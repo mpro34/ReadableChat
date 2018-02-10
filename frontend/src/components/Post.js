@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Category extends Component {
+class Post extends Component {
   render() {
     return (
       <div>
-        {this.props.name}
+        {this.props.title}
       </div>
-    )
+    );
   };
-};
+}
 
-export default Category;
+export default Post;

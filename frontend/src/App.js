@@ -13,20 +13,21 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import PostList from './containers/post_list';
+import MainContainer from './containers/MainContainer';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Switch>
-          <Route exact path='/' render={() => (
+          <Route exact path='/' component={MainContainer}/> {/*render={() => (
           <div>
             Root Page
             <PostList />
             <button onClick={() => this.props.getAllPosts()} className="btn btn-secondary">Fetch Posts</button>
             <button onClick={() => this.props.addPost()} className="btn btn-secondary">Create New Post</button>
           </div>
-          )}/>
+        )}/>*/}
           {/*TODO: Pass in a single Category as a prop!!!*/}
           <Route path='/category' component={Category} />
           {/*TODO: Pass in a single Post as a prop!!!*/}

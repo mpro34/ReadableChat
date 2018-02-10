@@ -23,11 +23,8 @@ export function selectCategory({ categories }) {
 }
 
 //Action Creators for Posts
-const posts_getURL = 'http://localhost:3001/posts';
-const posts_addURL = 'http://localhost:3001/posts';
-
 export function getAllPosts() {
-  const request = axios.get(posts_getURL, {
+  const request = axios.get('http://localhost:3001/posts', {
     headers: {
       Authorization: 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
     }
@@ -56,7 +53,7 @@ let postData = {
 };
 
 export function addPost() {
-  const response = axios.post(posts_addURL, postData, axiosConfig);
+  const response = axios.post('http://localhost:3001/posts', postData, axiosConfig);
 
   console.log('Response in addPost: ', response);
 
@@ -85,10 +82,17 @@ export function getOnePost({ post }) {
 }
 
 //Action Creators for Categories
-export const getAllCategories = categories => ({
+export function getAllCategories () {
+  const request = axios.get('http://localhost:3001/categories', {
+    headers: {
+      Authorization: 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
+    }
+  });
+  return {
     type: GET_ALL_CATEGORIES,
-    categories
-});
+    payload: request
+  }
+};
 
 export const fetchCategories = () => dispatch => (
   ServerAPIUtil
