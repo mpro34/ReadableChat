@@ -43,25 +43,25 @@ let axiosConfig = {
   }
 };
 
-let postData = {
-  id: '8xf0y6ziyjabvozddggggg',
-  timestamp: Date.now(),
-  title: 'Post created by action title',
-  body: 'This post was created by an action!!',
-  author: 'Chris Whiting G',
-  category: 'react1'
-};
+// let postData = {
+//   id: '8xf0y6ziyjabvozddggggg',
+//   timestamp: Date.now(),
+//   title: 'Post created by action title',
+//   body: 'This post was created by an action!!',
+//   author: 'Chris Whiting G',
+//   category: 'react1'
+// };
 
-export function addPost() {
-  const response = axios.post('http://localhost:3001/posts', postData, axiosConfig);
+export function addPost(values) {
+  const request = axios.post('http://localhost:3001/posts', values, axiosConfig);
 
-  console.log('Response in addPost: ', response);
-
+  console.log('request in addPost: ', request);
   return {
     type: ADD_POST,
-    payload: response
+    payload: request
   }
 }
+
 export function deletePost({ post }) {
   return {
     type: DELETE_POST,
