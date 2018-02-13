@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
 import Category from './Category';
+import 'materialize-css'; // It installs the JS asset only
+import 'materialize-css/dist/css/materialize.min.css';
 
 class Categories extends Component {
   render() {
@@ -8,7 +10,7 @@ class Categories extends Component {
       <div>
         <h2>Categories Component</h2>
         {this.props.categories.map(category => (
-          <ul className="list-group">
+          <ul key={shortid.generate()} className="list-group">
             <Category
               key={shortid.generate()}
               name={category.name}

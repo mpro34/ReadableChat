@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
 import Post from './Post';
+import 'materialize-css'; // It installs the JS asset only
+import 'materialize-css/dist/css/materialize.min.css';
 
 class Posts extends Component {
   render() {
@@ -8,7 +10,7 @@ class Posts extends Component {
       <div>
         <h2>Posts Component</h2>
         {this.props.posts.map(post => (
-          <ul className="list-group">
+          <ul key={shortid.generate()} className="list-group">
             <Post
               key={shortid.generate()}
               title={post.title}
