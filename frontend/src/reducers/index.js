@@ -58,7 +58,7 @@ function posts(state = [], action) {
   switch(action.type) {
     case GET_ALL_POSTS:
       console.log('Get_all_posts action:', action.payload.data);
-      return [ ...state, ...action.payload.data ];
+      return [ ...action.payload.data ];
     case ADD_POST:
       console.log('Add_post action:', action.payload.data);
       return state;
@@ -80,7 +80,7 @@ function categories(state = [], action) {
       return action.payload;
     case GET_ALL_CATEGORIES:
     console.log('Get_all_categories action:', action.payload.data);
-      return [ ...state, ...action.payload.data.categories ];
+      return [ ...action.payload.data.categories ];
     case GET_ONE_CATEGORY:
       return {};
     default:
