@@ -7,15 +7,17 @@ import { addPost } from '../actions';
 class PostsNew extends Component {
   renderField(field) {
     return (
-      <div className='form-group has-danger'>
-        <label>{field.label}</label>
-        <input
-          className="form-control"
-          type="text"
-          {...field.input}
-        />
-        <div className="text-help">
-          {field.meta.touched ? field.meta.error : ''}
+      <div className="form-group">
+          <label>{field.label}</label>
+        <div className="text-center margin-left:auto margin-right:auto width:40%">
+          <input
+            className="form-control"
+            type="text"
+            {...field.input}
+          />
+          <div className="text-help">
+            {field.meta.touched ? field.meta.error : ''}
+          </div>
         </div>
       </div>
     );
@@ -46,7 +48,7 @@ class PostsNew extends Component {
           component={this.renderField}
         />
         <button type="submit" className="btn btn-primary">Submit</button>
-        <Link to="/" className="btn btn-danger">Cancel</Link>
+        <Link to="/" className="btn danger">Cancel</Link>
       </form>
     )
   };

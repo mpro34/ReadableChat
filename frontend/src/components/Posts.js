@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
 import Post from './Post';
-import 'materialize-css'; // It installs the JS asset only
-import 'materialize-css/dist/css/materialize.min.css';
 
 class Posts extends Component {
   render() {
