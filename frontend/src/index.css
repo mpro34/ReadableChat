@@ -15,7 +15,7 @@ body {
   list-style-type: none;
 }
 
-a.btn.btn-primary {
+/* a.btn.btn-primary {
   background-color: #4CAF50;
   border: none;
   color: white;
@@ -24,7 +24,7 @@ a.btn.btn-primary {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-}
+} */
 
 input.form-control {
   width: 40%;

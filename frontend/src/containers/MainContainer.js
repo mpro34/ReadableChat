@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 import Categories from '../components/Categories';
 import Posts from '../components/Posts';
+import {Button, Icon} from 'react-materialize';
 
 class MainContainer extends Component {
   componentDidMount() {
@@ -18,7 +19,7 @@ class MainContainer extends Component {
       <div>
         <div className="text-xs-right">
           <Link className="btn btn-primary" to="/posts/new">
-            Add a Post
+            <Button floating large className='red' waves='light' icon='add' />
           </Link>
         </div>
         <h1>Main Container!</h1>

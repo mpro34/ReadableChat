@@ -3,22 +3,27 @@ import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addPost } from '../actions';
+import {Button, Icon, Row, Input} from 'react-materialize';
+
 
 class PostsNew extends Component {
   renderField(field) {
     return (
-      <div className="form-group">
-          <label>{field.label}</label>
-        <div className="text-center margin-left:auto margin-right:auto width:40%">
-          <input
-            className="form-control"
-            type="text"
-            {...field.input}
-          />
-          <div className="text-help">
-            {field.meta.touched ? field.meta.error : ''}
-          </div>
-        </div>
+      <div>
+          {/* <label>{field.label}</label> */}
+        {/* <div className="text-center margin-left:auto margin-right:auto width:40%"> */}
+          <Row>
+            <Input
+              className="grid-example col s12 offset-s6"
+              label={field.label}
+              type="text"
+              {...field.input}
+            />
+            <div className="text-help">
+              {field.meta.touched ? field.meta.error : ''}
+            </div>
+          </Row>
+        {/* </div> */}
       </div>
     );
   };
@@ -47,8 +52,8 @@ class PostsNew extends Component {
           name="content"
           component={this.renderField}
         />
-        <button type="submit" className="btn btn-primary">Submit</button>
-        <Link to="/" className="btn danger">Cancel</Link>
+        <Button type="submit" className="btn btn-primary">Submit</Button>
+        <Link to="/" className="btn red">Cancel</Link>
       </form>
     )
   };
