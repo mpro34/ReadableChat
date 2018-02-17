@@ -17,20 +17,26 @@ class MainContainer extends Component {
   render() {
     return (
       <div>
+        <h1>Main Container!</h1>
+        <div className="row">
+          <div class="col s6">
+            <Categories
+              categories={this.props.categories}
+            />
+          </div>
+          <div class="col s6">
+            <Posts
+              posts={this.props.posts}
+            />
+          </div>
+        </div>
+        {/* <button onClick={() => this.props.get_posts()}> Posts</button>
+        <button onClick={() => this.props.get_categories()}> Categories</button> */}
         <div className="text-xs-right">
-          <Link className="btn btn-primary" to="/posts/new">
-            <Button floating large className='red' waves='light' icon='add' />
+          <Link className="btn-floating btn-large waves-effect waves-light red" to="/posts/new">
+            <i class="material-icons">add</i>
           </Link>
         </div>
-        <h1>Main Container!</h1>
-        <button onClick={() => this.props.get_posts()}> Posts</button>
-        <button onClick={() => this.props.get_categories()}> Categories</button>
-        <Categories
-          categories={this.props.categories}
-        />
-        <Posts
-          posts={this.props.posts}
-        />
       </div>
     );
   };

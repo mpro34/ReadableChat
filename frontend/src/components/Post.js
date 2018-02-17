@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class Post extends Component {
   render() {
     return (
-      <li className="list-group-item">
+      <span className="flow-text">
         {this.props.title}
-      </li>
+      </span>
     );
   };
 }

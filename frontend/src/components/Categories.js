@@ -8,12 +8,12 @@ class Categories extends Component {
       <div>
         <h2>Categories Component</h2>
         {this.props.categories.map(category => (
-          <ul key={shortid.generate()} className="list-group">
-            <Category
-              key={shortid.generate()}
-              name={category.name}
-            />
-          </ul>
+          <div key={shortid.generate()} className="row">
+              <Category
+                key={shortid.generate()}
+                name={category.name}
+              />
+          </div>
         ))}
       </div>
     )
