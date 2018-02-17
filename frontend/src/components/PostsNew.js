@@ -10,20 +10,11 @@ class PostsNew extends Component {
   renderField(field) {
     return (
       <div>
-          {/* <label>{field.label}</label> */}
-        {/* <div className="text-center margin-left:auto margin-right:auto width:40%"> */}
-          <Row>
-            <Input
-              className="grid-example col s12 offset-s6"
-              label={field.label}
-              type="text"
-              {...field.input}
-            />
-            <div className="text-help">
-              {field.meta.touched ? field.meta.error : ''}
-            </div>
-          </Row>
-        {/* </div> */}
+        <div className="input-field col s6">
+          <input id={field.label} type="text" className="validate"/>
+          <label for={field.label}>{field.label}</label>
+          {field.meta.touched ? field.meta.error : ''}
+        </div>
       </div>
     );
   };
@@ -37,21 +28,25 @@ class PostsNew extends Component {
 
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <Field
-          label="Title"
-          name="title"
-          component={this.renderField}
-        />
-        <Field
-          label="Author"
-          name="author"
-          component={this.renderField}
-        />
-        <Field
-          label="Content"
-          name="content"
-          component={this.renderField}
-        />
+        <div className="row">
+          <div className="col s12">
+              <Field
+                label="Title"
+                name="title"
+                component={this.renderField}
+              />
+              <Field
+                label="Author"
+                name="author"
+                component={this.renderField}
+              />
+            <div className="input-field col s12">
+              <input id="Content" type="text" className="validate"/>
+              <label for="Content">Content</label>
+            </div>
+          </div>
+        </div>
+
         <Button type="submit" className="btn btn-primary">Submit</Button>
         <Link to="/" className="btn red">Cancel</Link>
       </form>
