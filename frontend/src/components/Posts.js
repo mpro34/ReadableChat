@@ -7,7 +7,7 @@ class Posts extends Component {
     return (
       <div>
         <h5>Posts Component</h5>
-        <div class="divider"></div>
+        <div className="divider"></div>
         {this.props.posts.map(post => (
           <div key={shortid.generate()} className="row">
               <Post

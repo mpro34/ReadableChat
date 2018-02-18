@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 import Categories from '../components/Categories';
 import Posts from '../components/Posts';
-import {Button, Icon} from 'react-materialize';
 
 class MainContainer extends Component {
   componentDidMount() {
@@ -19,12 +18,12 @@ class MainContainer extends Component {
       <div>
         <h1>Main Container!</h1>
         <div className="row">
-          <div class="col s6">
+          <div className="col s6">
             <Categories
               categories={this.props.categories}
             />
           </div>
-          <div class="col s6">
+          <div className="col s6">
             <Posts
               posts={this.props.posts}
             />
@@ -34,7 +33,7 @@ class MainContainer extends Component {
         <button onClick={() => this.props.get_categories()}> Categories</button> */}
         <div className="text-xs-right">
           <Link className="btn-floating btn-large waves-effect waves-light red" to="/posts/new">
-            <i class="material-icons">add</i>
+            <i className="material-icons">add</i>
           </Link>
         </div>
       </div>

@@ -7,7 +7,7 @@ class Categories extends Component {
     return (
       <div>
         <h5>Categories Component</h5>
-        <div class="divider"></div>
+        <div className="divider"></div>
         {this.props.categories.map(category => (
           <div key={shortid.generate()} className="row">
               <Category

@@ -10,7 +10,7 @@ class PostsNew extends Component {
       <div>
         <div className="input-field col s6">
           <input id={field.label} type="text" className="validate"/>
-          <label for={field.label}>{field.label}</label>
+          <label htmlFor={field.label}>{field.label}</label>
           {field.meta.touched ? field.meta.error : ''}
         </div>
       </div>
@@ -40,7 +40,7 @@ class PostsNew extends Component {
               />
             <div className="input-field col s12">
               <input id="Content" type="text" className="validate"/>
-              <label for="Content">Content</label>
+              <label htmlFor="Content">Content</label>
             </div>
           </div>
         </div>
