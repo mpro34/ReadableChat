@@ -6,7 +6,8 @@ class Categories extends Component {
   render() {
     return (
       <div>
-        <h2>Categories Component</h2>
+        <h5>Categories Component</h5>
+        <div class="divider"></div>
         {this.props.categories.map(category => (
           <div key={shortid.generate()} className="row">
               <Category

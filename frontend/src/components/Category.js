@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Category extends Component {
   render() {
     return (
-      <span className="flow-text">
+      <Link className="flow-text" to="/posts/new">
         {this.props.name}
-      </span>
+      </Link>
     )
   };
 };

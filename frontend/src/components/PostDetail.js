@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addPost } from '../actions';
 
-class PostsNew extends Component {
+class PostsDetail extends Component {
   renderField(field) {
     return (
       <div>
+        <h2>Post Detail Page!</h2>
         <div className="input-field col s6">
           <input id={field.label} type="text" className="validate"/>
           <label for={field.label}>{field.label}</label>
@@ -73,5 +74,5 @@ export default reduxForm({
   validate,
   form: 'PostsNewForm' //Name of form to be created
 })(
-  connect(null, { addPost })(PostsNew)
+  connect(null, { addPost })(PostsDetail)
 );
