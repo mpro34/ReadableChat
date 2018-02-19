@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { addPost } from '../actions';
+// import { connect } from 'react-redux';
+// import { addPost } from '../actions';
 
 class PostsNew extends Component {
   renderField(field) {
+    let myClass = "";
+    if (field.entrySize === "large") {
+      myClass = "input-field col s12";
+    } else {
+      myClass = "input-field col s6";
+    }
     return (
       <div>
-        <div className="input-field col s6">
-          <input id={field.label} type="text" className="validate"/>
-          <label htmlFor={field.label}>{field.label}</label>
+        <div className={myClass}>
+          <label>{field.label}</label>
+          <input
+            id={field.label}
+            type="text"
+            className="validate"
+            {...field.input}
+          />
           {field.meta.touched ? field.meta.error : ''}
         </div>
       </div>
@@ -18,7 +29,8 @@ class PostsNew extends Component {
   };
 
   onSubmit(values) {
-    this.props.addPost(values);
+    console.log("Submitting form: ", values);
+    //this.props.addPost(values);
   }
 
   render() {
@@ -38,10 +50,12 @@ class PostsNew extends Component {
                 name="author"
                 component={this.renderField}
               />
-            <div className="input-field col s12">
-              <input id="Content" type="text" className="validate"/>
-              <label htmlFor="Content">Content</label>
-            </div>
+              <Field
+                label="Content"
+                name="content"
+                entrySize="large"
+                component={this.renderField}
+              />
           </div>
         </div>
 
@@ -69,9 +83,15 @@ function validate(values) {
   return errors;
 }
 
+// const mapDispatchToProps = (dispatch, values) => {
+//   return {
+//     add_post(): () => dispatch(addPost(values))
+//   }
+// }
+
 export default reduxForm({
   validate,
   form: 'PostsNewForm' //Name of form to be created
-})(
-  connect(null, { addPost })(PostsNew)
-);
+})(PostsNew);
+
+//  connect(null, { addPost })(PostsNew)

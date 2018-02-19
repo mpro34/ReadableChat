@@ -31,7 +31,7 @@ class App extends Component {
           {/*TODO: Pass in a single Category as a prop!!!*/}
           <Route path='/categories/:id' component={Category} />
           <Route path='/posts/new' component={PostsNew} />
-          <Route path='/posts/:id' component={PostDetail} />
+          <Route path='/post/:id' component={PostDetail} />
           {/*TODO: Pass in a single Post as a prop!!!*/}
           <Route component={NoMatch} status={404} />
         </Switch>
