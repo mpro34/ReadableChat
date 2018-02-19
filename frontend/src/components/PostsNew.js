@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
-// import { connect } from 'react-redux';
-// import { addPost } from '../actions';
+import { connect } from 'react-redux';
+import { addPost } from '../actions';
 
 class PostsNew extends Component {
   renderField(field) {
@@ -30,7 +30,9 @@ class PostsNew extends Component {
 
   onSubmit(values) {
     console.log("Submitting form: ", values);
-    //this.props.addPost(values);
+    this.props.addPost(values);
+    //Redirect to Home page after form submission
+    this.props.history.push("/");
   }
 
   render() {
@@ -92,6 +94,8 @@ function validate(values) {
 export default reduxForm({
   validate,
   form: 'PostsNewForm' //Name of form to be created
-})(PostsNew);
+})(
+  connect(null, { addPost })(PostsNew)
+);
 
 //  connect(null, { addPost })(PostsNew)

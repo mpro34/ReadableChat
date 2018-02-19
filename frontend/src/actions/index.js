@@ -1,5 +1,6 @@
 import * as ServerAPIUtil from '../utils/server_api_fetch';
 import axios from 'axios';
+import uniqid from 'uniqid';
 
 export const GET_ALL_POSTS = 'GET_ALL_POSTS';
 export const ADD_POST = 'ADD_POST';
@@ -37,11 +38,21 @@ export function getAllPosts() {
 
 let axiosConfig = {
   headers: {
-    'Authorization': 'Basic YWxhZGRpbjpvcGVuc2VzYW1l',
-    'Content-Type': 'application/x-www-form-urlencoded',
+    'Authorization': 'Basic Y2hyaXM6cGFzc3dvcmQ=',
+    'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*'
   }
 };
+
+// id(pin): "8xf0y6ziyjabvozdd253nd"
+// timestamp(pin): 1467166872634
+// title(pin): "Udacity is the best place to learn React"
+// body(pin): "Everyone says so after all."
+// author(pin): "thingtwo"
+// category(pin): "react"
+// voteScore(pin): 6
+// deleted(pin): false
+// commentCount(pin): 2
 
 // let postData = {
 //   id: '8xf0y6ziyjabvozddggggg',
@@ -53,7 +64,17 @@ let axiosConfig = {
 // };
 
 export function addPost(values) {
-  const request = axios.post('http://localhost:3001/posts', values, axiosConfig);
+  const request = axios.post('http://localhost:3001/posts', {
+    "id": uniqid(),
+    "timestamp": Date.now(),
+    "title": values.title,
+    "body": values.body,
+    "author": values.author,
+    "category": "redux",
+    "voteScore": 1,
+    "deleted": false,
+    "commentCount": 0
+  }, axiosConfig);
 
   console.log('request in addPost: ', request);
   return {
