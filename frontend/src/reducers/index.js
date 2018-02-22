@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
+import _ from 'lodash';
 import {
   GET_ALL_POSTS,
   ADD_POST,
@@ -58,10 +59,14 @@ function posts(state = [], action) {
   switch(action.type) {
     case GET_ALL_POSTS:
       console.log('Get_all_posts action:', action.payload.data);
-      return [ ...action.payload.data ];
+    //  return [ ...action.payload.data ];
+    ///...state returns new post values, action.payload.data returns what was in backend server. TODO - Need to merge the two returns.
+      return [ ...state, ...action.payload.data ];
+    //  return _.mapKeys(action.payload.data, 'id');
     case ADD_POST:
-    //  console.log('Add_post action:', action.payload.data);
-      return state;
+      console.log('Add_post action:', action.payload.data);
+      console.log('old state?', [...state, action.payload.data]);
+      return [...state, action.payload.data];
     case DELETE_POST:
       return {};
     case EDIT_POST:
