@@ -60,7 +60,7 @@ function posts(state = [], action) {
       console.log('Get_all_posts action:', action.payload.data);
       return [ ...action.payload.data ];
     case ADD_POST:
-      console.log('Add_post action:', action.payload.data);
+    //  console.log('Add_post action:', action.payload.data);
       return state;
     case DELETE_POST:
       return {};

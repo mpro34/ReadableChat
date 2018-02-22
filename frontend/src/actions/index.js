@@ -71,9 +71,9 @@ export function addPost(values) {
     "body": values.body,
     "author": values.author,
     "category": "redux",
-    "voteScore": 1,
-    "deleted": false,
-    "commentCount": 0
+    // "voteScore": 1,
+    // "deleted": false,
+    // "commentCount": 0
   }, axiosConfig);
 
   console.log('request in addPost: ', request);
