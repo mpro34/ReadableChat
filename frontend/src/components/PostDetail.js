@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class PostsDetail extends Component {
   render() {
-    console.log("this.props of Post Detail: ", this.props.match.params.id);
+    console.log("this.props of Post Detail: ", this.props);
     return (
       <div className="row">
         <div className="left-align">
