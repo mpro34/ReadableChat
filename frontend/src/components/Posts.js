@@ -12,7 +12,12 @@ class Posts extends Component {
           <div key={shortid.generate()} className="row">
               <Post
                 key={shortid.generate()}
+                id={post.id}
                 title={post.title}
+                author={post.author}
+                body={post.body}
+                timestamp={post.timestamp}
+                voteScore={post.voteScore}
               />
         </div>
         ))}
