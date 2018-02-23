@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class PostsDetail extends Component {
   render() {
-    console.log("this.props of Post Detail: ", this.props);
+    console.log("ID of Post Detail: ", this.props.match.params.id);
+    console.log("**Posts from Store within Post Detail: ", this.props.posts.filter(post => (post.id === this.props.match.params.id)) );
     return (
       <div className="row">
         <div className="left-align">
@@ -34,4 +36,11 @@ class PostsDetail extends Component {
   };
 };
 
-export default PostsDetail;
+const mapStateToProps = state => {
+//  console.log("State from inside Post Detail: ", state.posts.filter(post => (post.id !== this.props.match.params.id)));
+  return {
+    posts: state.posts
+  }
+}
+
+export default connect(mapStateToProps, null)(PostsDetail);

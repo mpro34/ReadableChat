@@ -18,7 +18,7 @@ const store = createStore(
   composeEnhancers( applyMiddleware(ReduxPromise) )
 );
 
-console.log(`Main store vals: ${JSON.stringify(store.getState())}`);
+//console.log(`Main store vals: ${JSON.stringify(store.getState())}`);
 
 ReactDOM.render(
   <Provider store={store}>
