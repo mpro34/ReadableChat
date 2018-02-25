@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { getAllComments } from '../actions';
 
 class PostsDetail extends Component {
+  componentDidMount() {
+    this.props.get_comments(this.props.match.params.id);
+  }
+
   render() {
     console.log("ID of Post Detail: ", this.props.match.params.id);
     console.log("**Posts from Store within Post Detail: ", this.props.posts.filter(post => (post.id === this.props.match.params.id)) );
@@ -46,4 +51,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, null)(PostsDetail);
+const mapDispatchToProps = dispatch => {
+  return {
+    get_comments: () => dispatch(getAllComments())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostsDetail);

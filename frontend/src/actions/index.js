@@ -132,10 +132,16 @@ export function getOneCategory({ category }) {
 }
 
 //Action Creators for Comments
-export function getAllComments({ comments }) {
+export function getAllComments(id) {
+  console.log('Comment input id = ', id);
+  const request = axios.get('http://localhost:3001/posts/' + id + '/comments', {
+    headers: {
+      Authorization: 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
+    }
+  });
   return {
     type: GET_ALL_COMMENTS,
-    comments
+    payload: request
   }
 }
 export function editComment({ comment }) {
