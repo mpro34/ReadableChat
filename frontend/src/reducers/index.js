@@ -63,7 +63,7 @@ function posts(state = [], action) {
       console.log('state: ', state);
       console.log('action payload', action.payload.data);
     ///...state returns new post values, action.payload.data returns what was in backend server. TODO - Need to merge the two returns.
-      return action.payload.data; //[...state, ...action.payload.data]; //state;
+      return [...state, ...action.payload.data]; //[...state, ...action.payload.data]; //state;
     //  return _.mapKeys(action.payload.data, 'id');
     case ADD_POST:
       console.log('Add_post action:', action.payload.data);

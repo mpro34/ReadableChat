@@ -54,7 +54,7 @@ class PostsNew extends Component {
               />
               <Field
                 label="Content"
-                name="content"
+                name="body"
                 entrySize="large"
                 component={this.renderField}
               />
@@ -77,8 +77,8 @@ function validate(values) {
   if (!values.author) {
     errors.author = "Enter the author(s)!";
   }
-  if (!values.content) {
-    errors.content = "Enter some content!";
+  if (!values.body) {
+    errors.body = "Enter some content!";
   }
 
   //If errors is empty => all values are valid. Else there is an error in user input
