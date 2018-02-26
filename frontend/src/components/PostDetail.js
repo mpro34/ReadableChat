@@ -5,12 +5,14 @@ import { getAllComments } from '../actions';
 
 class PostsDetail extends Component {
   componentDidMount() {
+    console.log('PostDetail inside componentDidMount = ', this.props.match.params.id);
     this.props.get_comments(this.props.match.params.id);
   }
 
   render() {
     console.log("ID of Post Detail: ", this.props.match.params.id);
     console.log("**Posts from Store within Post Detail: ", this.props.posts.filter(post => (post.id === this.props.match.params.id)) );
+    console.log("--* Comments for this post: ", this.props.comments);
     let currentPost = (this.props.posts.filter(post => (post.id === this.props.match.params.id)))[0];
     return (
       <div className="row">
@@ -36,7 +38,17 @@ class PostsDetail extends Component {
 
       {/* Loop through comments and render them */}
           <span className="flow-text">
-            Comments
+            {
+              this.props.comments.map((comment, idx) => {
+                return (
+                  <div>
+                    <h5> Comment {idx} </h5>
+                    <p> From: {comment.author} </p>
+                    <p> {comment.body} </p>
+                  </div>
+                )
+              })
+            }
           </span>
 
       </div>
@@ -45,15 +57,15 @@ class PostsDetail extends Component {
 };
 
 const mapStateToProps = state => {
-//  console.log("State from inside Post Detail: ", state.posts.filter(post => (post.id !== this.props.match.params.id)));
   return {
-    posts: state.posts
+    posts: state.posts,
+    comments: state.comments
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    get_comments: () => dispatch(getAllComments())
+    get_comments: (id) => dispatch(getAllComments(id))
   }
 }
 

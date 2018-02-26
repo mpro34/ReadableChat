@@ -99,7 +99,7 @@ function categories(state = [], action) {
 function comments(state = initialComments, action) {
   switch(action.type) {
     case GET_ALL_COMMENTS:
-      console.log('Comments response = ', action.payload)
+      console.log('Comments response = ', action.payload.data)
       return state;
     case EDIT_COMMENT:
       return {};

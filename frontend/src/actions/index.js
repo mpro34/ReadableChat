@@ -144,6 +144,7 @@ export function getAllComments(id) {
     payload: request
   }
 }
+
 export function editComment({ comment }) {
   return {
     type: EDIT_COMMENT,
