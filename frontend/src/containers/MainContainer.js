@@ -18,12 +18,12 @@ class MainContainer extends Component {
       <div>
         <h1>Main Container!</h1>
         <div className="row">
-          <div className="col s6">
+          <div className="col s4">
             <Categories
               categories={this.props.categories}
             />
           </div>
-          <div className="col s6">
+          <div className="col s8">
             <Posts
               posts={this.props.posts}
             />

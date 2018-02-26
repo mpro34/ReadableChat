@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import shortid from 'shortid';
 import { getAllComments } from '../actions';
 
 class PostsDetail extends Component {
@@ -35,13 +36,15 @@ class PostsDetail extends Component {
           </p>
           <div className="divider"></div>
         </div>
-
+        <Link className="btn-floating waves-effect waves-light red" to="/">
+          <i className="material-icons">add</i>
+        </Link>
       {/* Loop through comments and render them */}
           <span className="flow-text">
             {
               this.props.comments.map((comment, idx) => {
                 return (
-                  <div>
+                  <div key={shortid.generate()}>
                     <h5> Comment {idx} </h5>
                     <p> From: {comment.author} </p>
                     <p> {comment.body} </p>

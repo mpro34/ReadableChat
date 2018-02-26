@@ -4,9 +4,16 @@ import { Link } from 'react-router-dom';
 class Category extends Component {
   render() {
     return (
-      <Link className="flow-text" to="/posts/new">
-        {this.props.name}
-      </Link>
+      <li className="collection-item">
+        <div>
+          {this.props.name}
+          <Link to="/" className="secondary-content">
+            <i className="material-icons">
+              filter_list
+            </i>
+          </Link>
+        </div>
+      </li>
     )
   };
 };

@@ -6,7 +6,7 @@ class Posts extends Component {
   render() {
     return (
       <div>
-        <h5>Posts Component</h5>
+        {/* <h5>Posts Component</h5>
         <div className="divider"></div>
         {this.props.posts.map(post => (
           <div key={shortid.generate()} className="row">
@@ -20,7 +20,23 @@ class Posts extends Component {
                 voteScore={post.voteScore}
               />
         </div>
-        ))}
+        ))} */}
+        <ul className="collection with-header">
+          <li className="collection-header"><h4>Posts</h4></li>
+          {this.props.posts.map(post => (
+            <div key={shortid.generate()} className="row">
+                <Post
+                  key={shortid.generate()}
+                  id={post.id}
+                  title={post.title}
+                  author={post.author}
+                  body={post.body}
+                  timestamp={post.timestamp}
+                  voteScore={post.voteScore}
+                />
+          </div>
+          ))}
+        </ul>
       </div>
     )
   };
