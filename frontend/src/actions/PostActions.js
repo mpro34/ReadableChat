@@ -1,4 +1,3 @@
-import * as ServerAPIUtil from '../utils/server_api_fetch';
 import axios from 'axios';
 import uniqid from 'uniqid';
 import {
@@ -13,13 +12,7 @@ import {
 /*
  * Action Creators for Posts
  */
-let axiosConfig = {
-  headers: {
-    'Authorization': 'Basic Y2hyaXM6cGFzc3dvcmQ=',
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'
-  }
-};
+
 //GET /posts
 export function getAllPosts() {
   const request = axios.get('http://localhost:3001/posts', {
@@ -32,6 +25,7 @@ export function getAllPosts() {
     payload: request
   }
 };
+
 //POST /posts
 export function addPost(values) {
   const request = axios.post('http://localhost:3001/posts', {
@@ -40,24 +34,37 @@ export function addPost(values) {
     "title": values.title,
     "body": values.body,
     "author": values.author,
-    "category": "redux",
-    // "voteScore": 1,
-    // "deleted": false,
-    // "commentCount": 0
-  }, axiosConfig);
+    "category": values.category,
+     "voteScore": 0,
+     "deleted": false,
+     "commentCount": 0
+  }, {
+    headers: {
+      'Authorization': 'Basic Y2hyaXM6cGFzc3dvcmQ=',
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    }
+  });
   console.log('request in addPost: ', request);
   return {
     type: ADD_POST,
     payload: request
   }
 };
+
 //DELETE /posts/:id
-export function deletePost() {
+export function deletePost(id) {
+  const request = axios.delete('http://localhost:3001/posts' + id, {
+    headers: {
+      Authorization: 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
+    }
+  })
   return {
     type: DELETE_POST,
-    payload: ''
+    payload: request
   }
 };
+
 //PUT /posts/:id
 export function editPost() {
   return {
@@ -65,12 +72,21 @@ export function editPost() {
     payload: ''
   }
 };
-export function getDetailsOfPost() {
+
+//GET /posts/:id/comments
+export function getDetailsOfPost(id) {
+  const request = axios.get('http://localhost:3001/posts' + id + '/comments', {
+    headers: {
+      Authorization: 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
+    }
+  });
   return {
     type: GET_DETAILS_OF_POST,
-    payload: ''
+    payload: request
   }
 };
+
+//POST /posts/:id
 export function voteForPost() {
   return {
     type: VOTE_FOR_POST,

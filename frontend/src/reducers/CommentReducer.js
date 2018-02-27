@@ -24,11 +24,15 @@ export default (state = initialComments, action) => {
       console.log('Comments response = ', action.payload.data)
       return state;
     case EDIT_COMMENT:
-      return {};
+      return state;
     case ADD_COMMENT:
-      return {};
+      return state;
+    case GET_DETAILS_OF_COMMENT:
+      return state;
+    case VOTE_FOR_COMMENT:
+      return state;
     case DELETE_COMMENT:
-      return {};
+      return state;
     default:
       return state;
   }
