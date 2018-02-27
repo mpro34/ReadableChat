@@ -9,7 +9,7 @@ import {
   GET_ONE_POST,
 
   GET_ALL_CATEGORIES,
-  GET_ONE_CATEGORY,
+  GET_POSTS_FOR_CATEGORY,
 
   GET_ALL_COMMENTS,
   EDIT_COMMENT,
@@ -88,8 +88,8 @@ function categories(state = [], action) {
     case GET_ALL_CATEGORIES:
     console.log('Get_all_categories action:', action.payload.data);
       return [ ...action.payload.data.categories ];
-    case GET_ONE_CATEGORY:
-      return {};
+    case GET_POSTS_FOR_CATEGORY:
+      return state;
     default:
       return state;
   }
