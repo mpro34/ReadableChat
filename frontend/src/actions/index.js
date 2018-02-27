@@ -23,7 +23,9 @@ export function selectCategory({ categories }) {
   }
 }
 
-//Action Creators for Posts
+/*
+ * Action Creators for Posts
+ */
 let axiosConfig = {
   headers: {
     'Authorization': 'Basic Y2hyaXM6cGFzc3dvcmQ=',
@@ -31,7 +33,7 @@ let axiosConfig = {
     'Access-Control-Allow-Origin': '*'
   }
 };
-
+//GET /posts
 export function getAllPosts() {
   const request = axios.get('http://localhost:3001/posts', {
     headers: {
@@ -43,6 +45,7 @@ export function getAllPosts() {
     payload: request
   }
 };
+//POST /posts
 export function addPost(values) {
   const request = axios.post('http://localhost:3001/posts', {
     "id": uniqid(),
@@ -61,12 +64,14 @@ export function addPost(values) {
     payload: request
   }
 };
+//DELETE /posts/:id
 export function deletePost({ post }) {
   return {
     type: DELETE_POST,
     post
   }
 };
+//PUT /posts/:id
 export function editPost({ post }) {
   return {
     type: EDIT_POST,
@@ -80,7 +85,10 @@ export function getOnePost({ post }) {
   }
 };
 
-//Action Creators for Categories
+/*
+ * Action Creators for Categories
+ */
+//GET /categories
 export function getAllCategories () {
   const request = axios.get('http://localhost:3001/categories', {
     headers: {
@@ -99,14 +107,23 @@ export const fetchCategories = () => dispatch => (
     dispatch(getAllCategories(categories))
   })
 );
-export function getPostsForCategory() {
+//GET /:category/posts
+export function getPostsForCategory(cat) {
+  console.log(cat);
+  const request = axios.get('http://localhost:3001/' + cat + '/posts', {
+    headers: {
+      Authorization: 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
+    }
+  });
+  console.log("Response from getPosts for Category: ", request);
   return {
     type: GET_POSTS_FOR_CATEGORY,
-    category
+    payload: request
   }
 };
 
 //Action Creators for Comments
+//GET /posts/:id/comments
 export function getAllComments(id) {
   console.log('Comment input id = ', id);
   const request = axios.get('http://localhost:3001/posts/' + id + '/comments', {
@@ -119,18 +136,21 @@ export function getAllComments(id) {
     payload: request
   }
 };
+//PUT /comments/:id
 export function editComment({ comment }) {
   return {
     type: EDIT_COMMENT,
     comment
   }
 };
+//POST /comments
 export function addComment({ comment }) {
   return {
     type: ADD_COMMENT,
     comment
   }
 };
+//DELETE /comments/:id
 export function deleteComment({ comment }) {
   return {
     type: DELETE_COMMENT,

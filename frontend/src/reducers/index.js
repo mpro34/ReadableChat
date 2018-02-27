@@ -89,6 +89,7 @@ function categories(state = [], action) {
     console.log('Get_all_categories action:', action.payload.data);
       return [ ...action.payload.data.categories ];
     case GET_POSTS_FOR_CATEGORY:
+      console.log('action payload: ', action.payload.data);
       return state;
     default:
       return state;

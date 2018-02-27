@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 //import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { getPostsForCategory } from '../actions';
+
 
 
 class Category extends Component {
@@ -13,7 +15,7 @@ class Category extends Component {
       <li className="collection-item">
         <div>
           {this.props.name}
-          <button onClick={this.getPostsforCategory} className="secondary-content">
+          <button onClick={() => this.props.get_posts_for_category(this.props.name)} className="secondary-content">
             <i className="material-icons">
               filter_list
             </i>
@@ -24,4 +26,16 @@ class Category extends Component {
   };
 };
 
-export default Category;
+const mapStateToProps = state => {
+  return {
+    posts: state.posts
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    get_posts_for_category: (name) => dispatch(getPostsForCategory(name))
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Category);
