@@ -36,23 +36,29 @@ class PostsDetail extends Component {
           </p>
           <div className="divider"></div>
         </div>
-        <Link className="btn-floating waves-effect waves-light red" to="/">
-          <i className="material-icons">add</i>
-        </Link>
+
       {/* Loop through comments and render them */}
-          <span className="flow-text">
+      <ul className="collapsible" data-collapsible="accordion">
+        <li>
+          <div className="collapsible-header">
+            {/* <i class="material-icons">filter_drama</i> */}
+            <Link className="left" to="/">
+              <i className="material-icons">add_box</i>
+            </Link>
+            Comments
+            <span className="new badge">{this.props.comments.length}</span></div>
             {
               this.props.comments.map((comment, idx) => {
                 return (
-                  <div key={shortid.generate()}>
-                    <h5> Comment {idx} </h5>
+                  <div className="collapsible-body" key={shortid.generate()}>
                     <p> From: {comment.author} </p>
                     <p> {comment.body} </p>
                   </div>
                 )
               })
             }
-          </span>
+        </li>
+      </ul>
 
       </div>
     )
