@@ -28,10 +28,20 @@ export function getAllComments(id) {
 };
 
 //PUT /comments/:id
-export function editComment({ comment }) {
+export function editComment(body, id) {
+  const request = axios.put('http://localhost:3001/comments' + id, {
+    "timestamp": Date.now(),
+    "body": body
+  }, {
+    headers: {
+      'Authorization': 'Basic Y2hyaXM6cGFzc3dvcmQ=',
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    }
+  });
   return {
     type: EDIT_COMMENT,
-    comment
+    payload: request
   }
 };
 
@@ -70,10 +80,20 @@ export function getDetailsOfComment(id) {
 };
 
 //POST /comments/:id
-export function voteForComment({ comment }) {
+//vote = "upVote" or "downVote"
+export function voteForComment(vote, id) {
+  const request = axios.post('http://localhost:3001/comments' + id, {
+    "option": vote
+  }, {
+    headers: {
+      'Authorization': 'Basic Y2hyaXM6cGFzc3dvcmQ=',
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    }
+  });
   return {
     type: VOTE_FOR_COMMENT,
-    comment
+    payload: request
   }
 };
 

@@ -35,9 +35,9 @@ export function addPost(values) {
     "body": values.body,
     "author": values.author,
     "category": values.category,
-     "voteScore": 0,
-     "deleted": false,
-     "commentCount": 0
+     // "voteScore": 0,
+     // "deleted": false,
+     // "commentCount": 0
   }, {
     headers: {
       'Authorization': 'Basic Y2hyaXM6cGFzc3dvcmQ=',
@@ -66,10 +66,20 @@ export function deletePost(id) {
 };
 
 //PUT /posts/:id
-export function editPost() {
+export function editPost(values, id) {
+  const request = axios.put('http://localhost:3001/posts' + id, {
+    "title": values.title,
+    "body": values.body
+  }, {
+    headers: {
+      'Authorization': 'Basic Y2hyaXM6cGFzc3dvcmQ=',
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    }
+  });
   return {
     type: EDIT_POST,
-    payload: ''
+    payload: request
   }
 };
 
@@ -87,9 +97,19 @@ export function getDetailsOfPost(id) {
 };
 
 //POST /posts/:id
-export function voteForPost() {
+//vote = "upVote" or "downVote"
+export function voteForPost(vote, id) {
+  const request = axios.post('http://localhost:3001/posts' + id, {
+    "option": vote
+  }, {
+    headers: {
+      'Authorization': 'Basic Y2hyaXM6cGFzc3dvcmQ=',
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    }
+  });
   return {
     type: VOTE_FOR_POST,
-    payload: ''
+    payload: request
   }
 };

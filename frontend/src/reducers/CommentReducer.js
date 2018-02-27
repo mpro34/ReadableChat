@@ -7,18 +7,18 @@ import {
   DELETE_COMMENT
 } from '../actions/types';
 
-const initialComments = [
-  {
-    body: 'This is the body of my first comment',
-    author: 'the thing'
-  },
-  {
-    body: 'COMMENT by patrick star!!!',
-    author: 'spongebob'
-  }
-];
+// const initialComments = [
+//   {
+//     body: 'This is the body of my first comment',
+//     author: 'the thing'
+//   },
+//   {
+//     body: 'COMMENT by patrick star!!!',
+//     author: 'spongebob'
+//   }
+// ];
 
-export default (state = initialComments, action) => {
+export default (state = [], action) => {
   switch(action.type) {
     case GET_ALL_COMMENTS:
       console.log('Comments response = ', action.payload.data)

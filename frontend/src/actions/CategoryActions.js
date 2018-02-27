@@ -28,7 +28,6 @@ export function getPostsForCategory(category) {
       Authorization: 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
     }
   });
-  //console.log("Response from getPosts for Category: ", request);
   return {
     type: GET_POSTS_FOR_CATEGORY,
     payload: request
