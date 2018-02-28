@@ -18,7 +18,7 @@ import {
 //   }
 // ];
 
-export default (state = [], action) => {
+export default (state = {}, action) => {
   switch(action.type) {
     /* return new state from GET req */
     case GET_ALL_COMMENTS:

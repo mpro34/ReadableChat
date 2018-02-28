@@ -7,7 +7,7 @@ import {
   VOTE_FOR_POST,
 } from '../actions/types';
 
-export default (state = [], action) => {
+export default (state = {}, action) => {
   switch(action.type) {
     /* Return new state with all posts from GET request */
     case GET_ALL_POSTS:

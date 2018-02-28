@@ -14,7 +14,9 @@ class PostsDetail extends Component {
     // console.log("ID of Post Detail: ", this.props.match.params.id);
     // console.log("**Posts from Store within Post Detail: ", this.props.posts.filter(post => (post.id === this.props.match.params.id)) );
     // console.log("--* Comments for this post: ", this.props.comments);
-    console.log("Posts: ", this.props.posts)
+    console.log("Posts: ", this.props.posts);
+    console.log("Comments in Post Detail: ", this.props.comments);
+
     let currentPost = this.props.posts[Object.keys(this.props.posts).filter(postKey => (
       (this.props.posts[postKey].id) === this.props.match.params.id
     ))]
@@ -27,43 +29,56 @@ class PostsDetail extends Component {
           </Link>
         </div>
         <h2>{currentPost ? currentPost.title : "Undefined Title"}</h2>
+
+        <div className="fixed-action-btn horizontal">
+           <a className="btn-floating btn-large red" to="/">
+             <i className="large material-icons">settings</i>
+           </a>
+           <ul>
+             <li><Link title="Edit Post" className="btn-floating green" to="/"><i className="material-icons">edit</i></Link></li>
+             <li><Link title="Delete Post" className="btn-floating red" to="/"><i className="material-icons">block</i></Link></li>
+           </ul>
+         </div>
+
         <div className="col s12">
           <h4 className="flow-text">
             By: {currentPost ? currentPost.author : "Undefined Author"}
           </h4>
           <div className="divider"></div>
         </div>
-
-        <div className="col s12">
-          <p className="flow-text-small">
-            {currentPost ? currentPost.body : "Undefined Body"}
-          </p>
-          <div className="divider"></div>
+        <div className="row" key={shortid.generate()}>
+          <div className="col s8 offset-s2">
+            <div className="card-panel teal">
+              <span className="white-text">
+                <p>{currentPost ? currentPost.body : "Undefined Body"}</p>
+              </span>
+            </div>
+          </div>
         </div>
 
-      {/* Loop through comments and render them */}
-      <ul className="collapsible" data-collapsible="accordion">
-        <li>
-          <div className="collapsible-header">
-            {/* <i class="material-icons">filter_drama</i> */}
-            <Link className="left" to="/">
-              <i className="material-icons">add_box</i>
-            </Link>
-            Comments
-            <span className="new badge">{this.props.comments.length}</span></div>
-            {
-              // this.props.comments.map((comment, idx) => {
-              //   return (
-              //     <div className="collapsible-body" key={shortid.generate()}>
-              //       <p> From: {comment.author} </p>
-              //       <p> {comment.body} </p>
-              //     </div>
-              //   )
-              // })
-            }
-        </li>
-      </ul>
+        <div className="divider"></div>
 
+        {/* Loop through comments and render them */}
+        <h5>Comments</h5>
+        <Link className="waves-effect waves-light btn" to="/">
+          <i className="material-icons left">add_box</i>
+          Add Comment
+        </Link>
+        {Object.keys(this.props.comments).map(comKey => {
+            let comment=this.props.comments[comKey];
+            let resp = (comment.parentId === this.props.match.params.id) ?
+                (<div className="row" key={shortid.generate()}>
+                  <div className="col s8 offset-s2">
+                    <div className="card-panel white">
+                      <span className="black-text">
+                        <p>From: {comment.author}</p>
+                        <p>{comment.body}</p>
+                      </span>
+                    </div>
+                  </div>
+                </div>) : <div key={shortid.generate()}/>
+            return resp
+          })}
       </div>
     )
   };
