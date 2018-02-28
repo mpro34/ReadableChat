@@ -20,15 +20,16 @@ import {
 
 export default (state = [], action) => {
   switch(action.type) {
+    /* return new state from GET req */
     case GET_ALL_COMMENTS:
       console.log('Comments response = ', action.payload.data)
-      return state;
+      return {...state, ...action.payload.data};//[...state, ...action.payload.data];//state;
     case EDIT_COMMENT:
       return state;
     case ADD_COMMENT:
       return state;
     case GET_DETAILS_OF_COMMENT:
-      return state;
+      return [...state, action.payload.data]; //state;
     case VOTE_FOR_COMMENT:
       return state;
     case DELETE_COMMENT:

@@ -16,7 +16,7 @@ class MainContainer extends Component {
   render() {
     return (
       <div>
-        <h1>Main Container!</h1>
+        {/* <h1>Main Container!</h1> */}
         <div className="row">
           <div className="col s4">
             <Categories

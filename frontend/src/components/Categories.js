@@ -19,14 +19,23 @@ class Categories extends Component {
         ))} */}
         <ul className="collection with-header flow-text">
           <li className="collection-header"><h4>Categories</h4></li>
-          {this.props.categories.map(category => (
+          {Object.keys(this.props.categories).map(catKey => {
+            let category = this.props.categories[catKey];
+            return <div key={shortid.generate()} className="row">
+                    <Category
+                      key={shortid.generate()}
+                      name={category.name}
+                    />
+                  </div>
+          })}
+          {/* {this.props.categories.map(category => (
            <div key={shortid.generate()} className="row">
                <Category
                  key={shortid.generate()}
                  name={category.name}
                />
            </div>
-         ))}
+         ))} */}
         </ul>
 
       </div>

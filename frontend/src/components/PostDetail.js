@@ -11,10 +11,14 @@ class PostsDetail extends Component {
   }
 
   render() {
-    console.log("ID of Post Detail: ", this.props.match.params.id);
-    console.log("**Posts from Store within Post Detail: ", this.props.posts.filter(post => (post.id === this.props.match.params.id)) );
-    console.log("--* Comments for this post: ", this.props.comments);
-    let currentPost = (this.props.posts.filter(post => (post.id === this.props.match.params.id)))[0];
+    // console.log("ID of Post Detail: ", this.props.match.params.id);
+    // console.log("**Posts from Store within Post Detail: ", this.props.posts.filter(post => (post.id === this.props.match.params.id)) );
+    // console.log("--* Comments for this post: ", this.props.comments);
+    console.log("Posts: ", this.props.posts)
+    let currentPost = this.props.posts[Object.keys(this.props.posts).filter(postKey => (
+      (this.props.posts[postKey].id) === this.props.match.params.id
+    ))]
+    console.log("current Post = ", currentPost);
     return (
       <div className="row">
         <div className="left-align">
@@ -48,14 +52,14 @@ class PostsDetail extends Component {
             Comments
             <span className="new badge">{this.props.comments.length}</span></div>
             {
-              this.props.comments.map((comment, idx) => {
-                return (
-                  <div className="collapsible-body" key={shortid.generate()}>
-                    <p> From: {comment.author} </p>
-                    <p> {comment.body} </p>
-                  </div>
-                )
-              })
+              // this.props.comments.map((comment, idx) => {
+              //   return (
+              //     <div className="collapsible-body" key={shortid.generate()}>
+              //       <p> From: {comment.author} </p>
+              //       <p> {comment.body} </p>
+              //     </div>
+              //   )
+              // })
             }
         </li>
       </ul>
