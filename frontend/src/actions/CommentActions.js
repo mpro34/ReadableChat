@@ -18,7 +18,7 @@ export function getAllComments(id) {
   console.log('Comment input id = ', id);
   const request = axios.get('http://localhost:3001/posts/' + id + '/comments', {
     headers: {
-      Authorization: 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
+      Authorization: 'Basic Y2hyaXM6cGFzc3dvcmQ='
     }
   });
   return {
@@ -70,7 +70,7 @@ export function addComment(values, parentId) {
 export function getDetailsOfComment(id) {
   const request = axios.get('http://localhost:3001/comments/' + id, {
     headers: {
-      Authorization: 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
+      Authorization: 'Basic Y2hyaXM6cGFzc3dvcmQ='
     }
   });
   return {
@@ -101,7 +101,7 @@ export function voteForComment(vote, id) {
 export function deleteComment(id) {
   const request = axios.delete('http://localhost:3001/comments/' + id, {
     headers: {
-      Authorization: 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
+      Authorization: 'Basic Y2hyaXM6cGFzc3dvcmQ='
     }
   });
   return {

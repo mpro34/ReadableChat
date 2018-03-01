@@ -6,7 +6,6 @@ class Posts extends Component {
   render() {
     return (
       <div>
-        <h5>Posts Component</h5>
         <div className="divider"></div>
         <ul className="collection with-header">
           <li className="collection-header"><h4>Posts</h4></li>

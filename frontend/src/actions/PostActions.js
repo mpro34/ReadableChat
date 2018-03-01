@@ -17,9 +17,10 @@ import {
 export function getAllPosts() {
   const request = axios.get('http://localhost:3001/posts', {
     headers: {
-      Authorization: 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
+      Authorization: 'Basic Y2hyaXM6cGFzc3dvcmQ='
     }
   });
+  console.log("Request from GET ALL POSTS: ", request);
   return {
     type: GET_ALL_POSTS,
     payload: request
@@ -34,7 +35,7 @@ export function addPost(values) {
     "title": values.title,
     "body": values.body,
     "author": values.author,
-    "category": values.category,
+    "category": "react",//values.category,
      // "voteScore": 0,
      // "deleted": false,
      // "commentCount": 0
@@ -56,7 +57,7 @@ export function addPost(values) {
 export function deletePost(id) {
   const request = axios.delete('http://localhost:3001/posts' + id, {
     headers: {
-      Authorization: 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
+      Authorization: 'Basic Y2hyaXM6cGFzc3dvcmQ='
     }
   })
   return {
@@ -87,7 +88,7 @@ export function editPost(values, id) {
 export function getDetailsOfPost(id) {
   const request = axios.get('http://localhost:3001/posts' + id + '/comments', {
     headers: {
-      Authorization: 'Basic YWxhZGRpbjpvcGVuc2VzYW1l'
+      Authorization: 'Basic Y2hyaXM6cGFzc3dvcmQ='
     }
   });
   return {
