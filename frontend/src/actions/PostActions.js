@@ -55,11 +55,11 @@ export function addPost(values) {
 
 //DELETE /posts/:id
 export function deletePost(id) {
-  const request = axios.delete('http://localhost:3001/posts' + id, {
+  const request = axios.delete('http://localhost:3001/posts/' + id, {
     headers: {
       Authorization: 'Basic Y2hyaXM6cGFzc3dvcmQ='
     }
-  })
+  });
   return {
     type: DELETE_POST,
     payload: request
