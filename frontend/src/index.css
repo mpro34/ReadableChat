@@ -31,3 +31,9 @@ input.form-control {
   margin-left: auto;
   margin-right: auto;
 }
+
+.width-divider{
+    width:20px;
+    height:10px;
+    display:inline-block;
+}
