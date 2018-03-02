@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import shortid from 'shortid';
-import { getAllComments, voteForPost } from '../actions';
+import { getAllComments, voteForPost, deletePost } from '../actions';
 
 class PostsDetail extends Component {
   componentDidMount() {
@@ -35,7 +35,7 @@ class PostsDetail extends Component {
            </a>
            <ul>
              <li><Link title="Edit Post" className="btn-floating green" to="/"><i className="material-icons">edit</i></Link></li>
-             <li><Link title="Delete Post" className="btn-floating red" to="/"><i className="material-icons">block</i></Link></li>
+             <li><Link to="/"><button title="Delete Post" className="btn-floating red" onClick={() => this.props.delete_post(currentPost.id)}><i className="material-icons">block</i></button></Link></li>
            </ul>
          </div>
 
@@ -98,7 +98,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     get_comments: (id) => dispatch(getAllComments(id)),
-    vote_for_post: (vote, id) => dispatch(voteForPost(vote, id))
+    vote_for_post: (vote, id) => dispatch(voteForPost(vote, id)),
+    delete_post: (id) => dispatch(deletePost(id)),
   }
 }
 
