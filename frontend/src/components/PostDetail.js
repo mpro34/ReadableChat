@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import shortid from 'shortid';
-import { getAllComments } from '../actions';
+import { getAllComments, voteForPost } from '../actions';
 
 class PostsDetail extends Component {
   componentDidMount() {
@@ -11,15 +11,14 @@ class PostsDetail extends Component {
   }
 
   render() {
-    // console.log("ID of Post Detail: ", this.props.match.params.id);
-    // console.log("**Posts from Store within Post Detail: ", this.props.posts.filter(post => (post.id === this.props.match.params.id)) );
-    // console.log("--* Comments for this post: ", this.props.comments);
     console.log("Posts: ", this.props.posts);
     console.log("Comments in Post Detail: ", this.props.comments);
 
     let currentPost = this.props.posts[Object.keys(this.props.posts).filter(postKey => (
       (this.props.posts[postKey].id) === this.props.match.params.id
     ))]
+    let postDate = new Date(currentPost ? currentPost.timestamp : 0);
+    console.log("DATE = ", postDate);
     console.log("current Post = ", currentPost);
     return (
       <div className="row">
@@ -28,7 +27,7 @@ class PostsDetail extends Component {
             <i className="material-icons">arrow_back</i>
           </Link>
         </div>
-        <h2>{currentPost ? currentPost.title : "Undefined Title"}</h2>
+        <h3>{currentPost ? currentPost.title : "Undefined Title"}</h3>
 
         <div className="fixed-action-btn horizontal">
            <a className="btn-floating btn-large red" to="/">
@@ -41,9 +40,14 @@ class PostsDetail extends Component {
          </div>
 
         <div className="col s12">
-          <h4 className="flow-text">
-            By: {currentPost ? currentPost.author : "Undefined Author"}
-          </h4>
+            Submitted by {currentPost ? currentPost.author : "Undefined Author"} at {postDate.toUTCString()}
+          <p>Score: {currentPost ? currentPost.voteScore : "0.0"}</p>
+          <button className="btn waves-effect waves-light blue" onClick={() => this.props.vote_for_post("upVote", currentPost.id)}>
+            <i className="material-icons">expand_less</i>
+          </button>
+          <button className="btn waves-effect waves-light blue" onClick={() => this.props.vote_for_post("downVote", currentPost.id)}>
+            <i className="material-icons">expand_more</i>
+          </button>
           <div className="divider"></div>
         </div>
         <div className="row" key={shortid.generate()}>
@@ -93,7 +97,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    get_comments: (id) => dispatch(getAllComments(id))
+    get_comments: (id) => dispatch(getAllComments(id)),
+    vote_for_post: (vote, id) => dispatch(voteForPost(vote, id))
   }
 }
 

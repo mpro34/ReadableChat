@@ -29,7 +29,7 @@ export function getAllComments(id) {
 
 //PUT /comments/:id
 export function editComment(body, id) {
-  const request = axios.put('http://localhost:3001/comments' + id, {
+  const request = axios.put('http://localhost:3001/comments/' + id, {
     "timestamp": Date.now(),
     "body": body
   }, {
@@ -82,7 +82,7 @@ export function getDetailsOfComment(id) {
 //POST /comments/:id
 //vote = "upVote" or "downVote"
 export function voteForComment(vote, id) {
-  const request = axios.post('http://localhost:3001/comments' + id, {
+  const request = axios.post('http://localhost:3001/comments/' + id, {
     "option": vote
   }, {
     headers: {

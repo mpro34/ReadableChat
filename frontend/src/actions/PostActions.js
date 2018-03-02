@@ -68,7 +68,7 @@ export function deletePost(id) {
 
 //PUT /posts/:id
 export function editPost(values, id) {
-  const request = axios.put('http://localhost:3001/posts' + id, {
+  const request = axios.put('http://localhost:3001/posts/' + id, {
     "title": values.title,
     "body": values.body
   }, {
@@ -86,7 +86,7 @@ export function editPost(values, id) {
 
 //GET /posts/:id/comments
 export function getDetailsOfPost(id) {
-  const request = axios.get('http://localhost:3001/posts' + id + '/comments', {
+  const request = axios.get('http://localhost:3001/posts/' + id + '/comments', {
     headers: {
       Authorization: 'Basic Y2hyaXM6cGFzc3dvcmQ='
     }
@@ -100,7 +100,7 @@ export function getDetailsOfPost(id) {
 //POST /posts/:id
 //vote = "upVote" or "downVote"
 export function voteForPost(vote, id) {
-  const request = axios.post('http://localhost:3001/posts' + id, {
+  const request = axios.post('http://localhost:3001/posts/' + id, {
     "option": vote
   }, {
     headers: {
@@ -109,6 +109,7 @@ export function voteForPost(vote, id) {
       'Access-Control-Allow-Origin': '*'
     }
   });
+  console.log("Voting for Post: ", request);
   return {
     type: VOTE_FOR_POST,
     payload: request
