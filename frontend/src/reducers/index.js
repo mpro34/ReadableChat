@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 //import _ from 'lodash';
-import PostReducer from './PostReducer';
-import CategoryReducer from './CategoryReducer';
-import CommentReducer from './CommentReducer';
+import PostReducer from '../containers/Posts/PostReducer';
+import CategoryReducer from '../containers/Categories/CategoryReducer';
+import CommentReducer from '../containers/Comments/CommentReducer';
 
 export default combineReducers({
   posts: PostReducer,

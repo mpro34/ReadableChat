@@ -2,7 +2,7 @@ import axios from 'axios';
 import {
   GET_ALL_CATEGORIES,
   GET_POSTS_FOR_CATEGORY,
-} from './types';
+} from '../../actions/types';
 
 /*
  * Action Creators for Categories

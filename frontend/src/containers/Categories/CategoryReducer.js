@@ -1,7 +1,7 @@
 import {
   GET_ALL_CATEGORIES,
   GET_POSTS_FOR_CATEGORY,
-} from '../actions/types';
+} from '../../actions/types';
 
 export default (state = {}, action) => {
   switch(action.type) {

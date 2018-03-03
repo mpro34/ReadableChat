@@ -6,9 +6,9 @@ class Posts extends Component {
   render() {
     return (
       <div>
-        <div className="divider"></div>
+        {/* <div className="divider"></div> */}
         <ul className="collection with-header">
-          <li className="collection-header"><h4>Posts</h4></li>
+          <li className="collection-header"><h4>Readable Chat</h4></li>
           {/* {this.props.posts.map(post => (
             <div key={shortid.generate()} className="row">
                 <Post

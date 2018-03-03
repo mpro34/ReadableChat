@@ -7,7 +7,7 @@ import {
   EDIT_POST,
   GET_DETAILS_OF_POST,
   VOTE_FOR_POST,
-} from './types';
+} from '../../actions/types';
 
 /*
  * Action Creators for Posts

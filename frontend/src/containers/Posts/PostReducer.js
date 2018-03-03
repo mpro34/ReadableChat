@@ -5,7 +5,7 @@ import {
   EDIT_POST,
   GET_DETAILS_OF_POST,
   VOTE_FOR_POST,
-} from '../actions/types';
+} from '../../actions/types';
 
 export default (state = {}, action) => {
   switch(action.type) {

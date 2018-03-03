@@ -5,7 +5,7 @@ import {
   GET_DETAILS_OF_COMMENT,
   VOTE_FOR_COMMENT,
   DELETE_COMMENT
-} from '../actions/types';
+} from '../../actions/types';
 
 // const initialComments = [
 //   {

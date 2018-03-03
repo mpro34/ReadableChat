@@ -7,7 +7,7 @@ import {
   GET_DETAILS_OF_COMMENT,
   VOTE_FOR_COMMENT,
   DELETE_COMMENT
-} from './types';
+} from '../../actions/types';
 
 /*
  * Action Creators for Comments

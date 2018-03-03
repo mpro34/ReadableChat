@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-import { getAllPosts, getAllCategories, getPostsForCategory } from '../actions';
+import { getAllPosts } from './Posts/PostActions';
+import { getAllCategories, getPostsForCategory } from './Categories/CategoryActions';
 import { Link } from 'react-router-dom';
 
 // import Categories from '../components/Categories';
-import Posts from '../components/Posts';
+import Posts from './Posts/Posts';
 import shortid from 'shortid';
 
 
