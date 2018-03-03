@@ -21,25 +21,34 @@ class MainContainer extends Component {
         {/* <h1>Main Container!</h1> */}
         <div className="row">
           <div className="col s12">
+
             <Link className='dropdown-button btn' href='#' to="/" data-activates='dropdown1'>Filter By Category</Link>
-
-            <Posts
-              posts={this.props.posts}
-            />
-
             <ul id='dropdown1' className='dropdown-content'>
               {Object.keys(this.props.categories).map(catKey => {
                 let category = this.props.categories[catKey];
                 return (
                 <li key={shortid.generate()}>
-                  <Link className="btn blue" to="/">
-                  <button onClick={() => this.props.get_posts_for_category(this.props.name)}>
+                  <Link onClick={() => this.props.get_posts_for_category(this.props.name)} to="/">
                     {category.name}
-                  </button>
                   </Link>
                 </li>
               )})}
             </ul>
+
+            <Link className='dropdown-button btn' href='#' to="/" data-activates='dropdown2'>Sort By</Link>
+            <ul id='dropdown2' className='dropdown-content'>
+                <li><Link onClick={() => console.log("Sort by VoteScore")} to="/">
+                    Vote Score
+                </Link></li>
+                <li><Link onClick={() => console.log("Sort by Timestamp")} to="/">
+                    Timestamp
+                </Link></li>
+            </ul>
+
+
+            <Posts
+              posts={this.props.posts}
+            />
           </div>
         </div>
         {/* <button onClick={() => this.props.get_posts()}> Posts</button>
