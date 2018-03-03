@@ -13,7 +13,7 @@ import NoMatch from './components/NoMatch';
 // // import { bindActionCreators } from 'redux';
 // import { connect } from 'react-redux';
 
-import MainContainer from './containers/MainContainer';
+import Main from './components/Main';
 
 class App extends Component {
   render() {
@@ -21,7 +21,7 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route exact path='/' component={MainContainer}/> {/*render={() => (
+          <Route exact path='/' component={Main}/> {/*render={() => (
           <div>
             Root Page
             <PostList />

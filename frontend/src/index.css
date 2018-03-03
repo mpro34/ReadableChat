@@ -37,3 +37,9 @@ input.form-control {
     height:10px;
     display:inline-block;
 }
+
+.categories {
+  padding: 0px 10px;
+  word-wrap: normal;
+  display: inline-block;
+}
