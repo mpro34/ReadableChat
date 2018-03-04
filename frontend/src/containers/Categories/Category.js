@@ -5,12 +5,6 @@ import { Link } from 'react-router-dom';
 import { getPostsForCategory } from '../../actions';
 
 
-          {/* <button onClick={() => this.props.get_posts_for_category(this.props.name)} className="secondary-content">
-            <i className="material-icons">
-              filter_list
-            </i>
-          </button> */}
-
 class Category extends Component {
   render() {
     return <Link className="categories" to="/category/:id">{this.props.name}</Link>

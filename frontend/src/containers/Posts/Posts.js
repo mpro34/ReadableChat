@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
 import Post from './Post';
+import { getAllPosts } from './PostActions';
+import { connect } from 'react-redux';
 
 class Posts extends Component {
+  componentDidMount() {
+    this.props.get_all_posts();
+  }
   render() {
     return (
       <div>
@@ -42,4 +47,16 @@ class Posts extends Component {
   };
 };
 
-export default Posts;
+const mapStateToProps = state => {
+  return {
+    posts: state.posts
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    get_all_posts: () => dispatch(getAllPosts())
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Posts);
