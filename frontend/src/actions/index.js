@@ -1,3 +1,3 @@
-// export * from './PostActions';
-// export * from './CategoryActions';
-// export * from './CommentActions';
+export * from '../containers/Posts/PostActions';
+export * from '../containers/Categories/CategoryActions';
+export * from '../containers/Comments/CommentActions';
