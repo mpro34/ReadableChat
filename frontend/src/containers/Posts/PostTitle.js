@@ -11,10 +11,9 @@ class PostTitle extends Component {
   render() {
     console.log("PostTitle: id of post = ", this.props);
     //console.log("Comments in Post Detail: ", this.props.comments);
-    let currentPost = null;
-    // let currentPost = this.props.posts[Object.keys(this.props.posts).filter(postKey => (
-    //   (this.props.posts[postKey].id) === this.props.match.params.id
-    // ))]
+    let currentPost = this.props.posts[Object.keys(this.props.posts).filter(postKey => (
+      (this.props.posts[postKey].id) === this.props.root_id
+    ))]
     let postDate = new Date(currentPost ? currentPost.timestamp : 0);
     //console.log("DATE = ", postDate);
     //console.log("current Post = ", currentPost);

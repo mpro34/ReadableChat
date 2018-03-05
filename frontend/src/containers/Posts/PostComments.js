@@ -2,23 +2,19 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getAllPosts, getAllComments } from '../../actions';
-//import shortid from 'shortid';
+import shortid from 'shortid';
 
 class PostComments extends Component {
   componentDidMount() {
     this.props.get_all_posts();
-    this.props.get_all_comments();
+    this.props.get_all_comments(this.props.root_id);
   }
   render() {
     console.log("PostComments: id of post = ", this.props.root_id);
-    //console.log("Comments in Post Detail: ", this.props.comments);
-    //let currentPost = null;
+    console.log("Comments in Post Detail: ", this.props.comments);
     // let currentPost = this.props.posts[Object.keys(this.props.posts).filter(postKey => (
-    //   (this.props.posts[postKey].id) === this.props.match.params.id
+    //   (this.props.posts[postKey].id) === this.props.root_id
     // ))]
-    //let postDate = new Date(currentPost ? currentPost.timestamp : 0);
-    // console.log("DATE = ", postDate);
-    // console.log("current Post = ", currentPost);
     return (
       <div>
         <div className="divider"></div>
@@ -28,9 +24,9 @@ class PostComments extends Component {
           <i className="material-icons left">add_box</i>
           Add Comment
         </Link>
-        {/* {Object.keys(this.props.comments).map(comKey => {
+        {Object.keys(this.props.comments).map(comKey => {
             let comment=this.props.comments[comKey];
-            let resp = (comment.parentId === this.props.match.params.id) ?
+            let resp = (comment.parentId === this.props.root_id) ?
                 (<div className="row" key={shortid.generate()}>
                   <div className="col s8 offset-s2">
                     <div className="card-panel white">
@@ -42,7 +38,7 @@ class PostComments extends Component {
                   </div>
                 </div>) : <div key={shortid.generate()}/>
             return resp
-          })} */}
+          })}
       </div>
     );
   };

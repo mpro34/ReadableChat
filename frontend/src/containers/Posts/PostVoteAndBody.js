@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 //import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getAllPosts } from '../../actions';
+import { getAllPosts, voteForPost } from '../../actions';
 import shortid from 'shortid';
 
 class PostVoteAndBody extends Component {
   render() {
     console.log("PostVoteAndBody: id of post = ", this.props.root_id);
     //console.log("Comments in Post Detail: ", this.props.comments);
-    let currentPost = null;
-    // let currentPost = this.props.posts[Object.keys(this.props.posts).filter(postKey => (
-    //   (this.props.posts[postKey].id) === this.props.match.params.id
-    // ))]
+    let currentPost = this.props.posts[Object.keys(this.props.posts).filter(postKey => (
+      (this.props.posts[postKey].id) === this.props.root_id
+    ))]
     //let postDate = new Date(currentPost ? currentPost.timestamp : 0);
     // console.log("DATE = ", postDate);
     // console.log("current Post = ", currentPost);
@@ -52,7 +51,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    get_all_posts: () => dispatch(getAllPosts())
+    get_all_posts: () => dispatch(getAllPosts()),
+    vote_for_post: (vote) => dispatch(voteForPost(vote, this.props.root_id))
   }
 }
 
