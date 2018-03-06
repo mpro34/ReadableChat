@@ -7,7 +7,7 @@ import { getPostsForCategory } from '../../actions';
 
 class Category extends Component {
   render() {
-    return <Link className="categories" to="/category/:id">{this.props.name}</Link>
+    return <Link className="categories" to="/category/:name">{this.props.name}</Link>
   };
 };
 

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 class SortBy extends Component {
   render() {
+    console.log("Posts from SORTBY: ", this.props.posts);
     return (
       <div>
         <Link className='dropdown-button btn' href='#' to="/" data-activates='dropdown2'>Sort By</Link>
@@ -26,4 +27,10 @@ class SortBy extends Component {
 //   }
 // }
 
-export default connect(null, null)(SortBy);
+const mapStateToProps = state => {
+  return {
+    posts: state.posts
+  }
+}
+
+export default connect(mapStateToProps, null)(SortBy);
