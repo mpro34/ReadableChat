@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addPost } from '../actions';
+import { addPost } from '../../actions';
 
-class PostsNew extends Component {
+class PostNew extends Component {
   renderField(field) {
     let myClass = "";
     if (field.entrySize === "large") {
@@ -85,9 +85,16 @@ function validate(values) {
   return errors;
 }
 
-// const mapDispatchToProps = (dispatch, values) => {
+// const mapStateToProps = state => {
 //   return {
-//     add_post(): () => dispatch(addPost(values))
+//     posts: state.posts
+//   }
+// }
+//
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     get_all_posts: () => dispatch(getAllPosts()),
+//     delete_post: (id) => dispatch(deletePost(id))
 //   }
 // }
 
@@ -95,7 +102,5 @@ export default reduxForm({
   validate,
   form: 'PostsNewForm' //Name of form to be created
 })(
-  connect(null, { addPost })(PostsNew)
+  connect(null, { addPost })(PostNew)
 );
-
-//  connect(null, { addPost })(PostsNew)

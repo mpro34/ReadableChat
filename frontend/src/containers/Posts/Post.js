@@ -16,7 +16,7 @@ class Post extends Component {
       <div>
       <li className="collection-item left flow-text">
         <div className="left-align">
-          <button type="submit" onClick={() => this.props.delete_post(this.props.id)} className="btn-floating btn-tiny waves-effect waves-light red">
+          <button type="submit" onClick={() => { this.props.delete_post(this.props.id); this.props.history.push("/"); }} className="btn-floating btn-tiny waves-effect waves-light red">
             <i className="material-icons tiny">close</i>
           </button>
           <div className="width-divider"/>
