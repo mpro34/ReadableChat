@@ -5,7 +5,10 @@ import { Route } from 'react-router-dom';
 import { Switch } from 'react-router';
 import Category from './containers/Categories/Category';
 import NoMatch from './components/NoMatch';
+
 import CreatePost from './components/CreatePost';
+import CreateComment from './components/CreateComment';
+
 import PostDetail from './components/PostDetail';
 // import Root from './components/Root';
 
@@ -32,7 +35,7 @@ class App extends Component {
           {/*TODO: Pass in a single Category as a prop!!!*/}
           <Route path='/categories/:name' component={Category} />
           <Route path='/posts/new' component={CreatePost} />
-          {/* <Route path='/categories/new' component={PostsNew} /> */}
+          <Route path='/comments/new/:pid' component={CreateComment} />
           <Route path='/post/:id' component={PostDetail} />
           {/*TODO: Pass in a single Post as a prop!!!*/}
           <Route component={NoMatch} status={404} /> */}

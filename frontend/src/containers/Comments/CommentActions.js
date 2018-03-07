@@ -47,6 +47,7 @@ export function editComment(body, id) {
 
 //POST /comments
 export function addComment(values, parentId) {
+  console.log("Add Comment parentID = ", parentId);
   const request = axios.post('http://localhost:3001/comments', {
     "id": uniqid(),
     "timestamp": Date.now(),
@@ -60,6 +61,7 @@ export function addComment(values, parentId) {
       'Access-Control-Allow-Origin': '*'
     }
   });
+  console.log("Comment Request sent: ", request);
   return {
     type: ADD_COMMENT,
     payload: request

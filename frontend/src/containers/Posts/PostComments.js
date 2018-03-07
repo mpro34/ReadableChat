@@ -20,7 +20,7 @@ class PostComments extends Component {
         <div className="divider"></div>
         {/* Loop through comments and render them */}
         <h5>Comments</h5>
-        <Link className="waves-effect waves-light btn" to="/">
+        <Link className="waves-effect waves-light btn" to={"/comments/new/" + this.props.root_id}>
           <i className="material-icons left">add_box</i>
           Add Comment
         </Link>

@@ -27,6 +27,7 @@ export default (state = {}, action) => {
     case EDIT_COMMENT:
       return state;
     case ADD_COMMENT:
+    console.log("Adding comment Reducer: ", action.payload);
       return state;
     case GET_DETAILS_OF_COMMENT:
       return [...state, action.payload.data]; //state;
