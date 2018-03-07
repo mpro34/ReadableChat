@@ -4,6 +4,7 @@ import {
   DELETE_POST,
   EDIT_POST,
   GET_DETAILS_OF_POST,
+  GET_COMMENTS_OF_POST,
   VOTE_FOR_POST,
 } from '../../actions/types';
 
@@ -28,6 +29,10 @@ export default (state = {}, action) => {
       return state;
     /* Return new state with details of post form GET request */
     case GET_DETAILS_OF_POST:
+      console.log("Details POST Reducer payload = ", action.payload.data);
+      return [...action.payload.data];
+    /* Return new state with details of post form GET request */
+    case GET_COMMENTS_OF_POST:
       return [...state, action.payload.data];
     /* Return state after POST to update server state */
     case VOTE_FOR_POST:

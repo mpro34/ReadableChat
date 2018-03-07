@@ -6,6 +6,7 @@ import {
   DELETE_POST,
   EDIT_POST,
   GET_DETAILS_OF_POST,
+  GET_COMMENTS_OF_POST,
   VOTE_FOR_POST,
 } from '../../actions/types';
 
@@ -84,15 +85,30 @@ export function editPost(values, id) {
   }
 };
 
-//GET /posts/:id/comments
+//GET /posts/:id
 export function getDetailsOfPost(id) {
+  const request = axios.get('http://localhost:3001/posts/' + id, {
+    headers: {
+      Authorization: 'Basic Y2hyaXM6cGFzc3dvcmQ='
+    }
+  });
+  console.log("Request values = ", request);
+  return {
+    type: GET_DETAILS_OF_POST,
+    payload: request
+  }
+};
+
+//GET /posts/:id/comments
+export function getCommentsOfPost(id) {
   const request = axios.get('http://localhost:3001/posts/' + id + '/comments', {
     headers: {
       Authorization: 'Basic Y2hyaXM6cGFzc3dvcmQ='
     }
   });
+  console.log("Request values = ", request);
   return {
-    type: GET_DETAILS_OF_POST,
+    type: GET_COMMENTS_OF_POST,
     payload: request
   }
 };

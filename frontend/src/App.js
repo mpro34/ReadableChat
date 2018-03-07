@@ -7,6 +7,8 @@ import Category from './containers/Categories/Category';
 import NoMatch from './components/NoMatch';
 
 import CreatePost from './components/CreatePost';
+import EditPost from './components/EditPost';
+
 import CreateComment from './components/CreateComment';
 
 import PostDetail from './components/PostDetail';
@@ -35,6 +37,7 @@ class App extends Component {
           {/*TODO: Pass in a single Category as a prop!!!*/}
           <Route path='/categories/:name' component={Category} />
           <Route path='/posts/new' component={CreatePost} />
+          <Route path='/post/edit/:id' component={EditPost} />
           <Route path='/comments/new/:pid' component={CreateComment} />
           <Route path='/post/:id' component={PostDetail} />
           {/*TODO: Pass in a single Post as a prop!!!*/}

@@ -29,7 +29,7 @@ class PostTitle extends Component {
         <div className="fixed-action-btn horizontal">
            <a className="btn-floating btn-large red" to="/"> <i className="large material-icons">settings</i> </a>
            <ul>
-             <li><Link title="Edit Post" className="btn-floating green" to="/"><i className="material-icons">edit</i></Link></li>
+             <li><Link title="Edit Post" className="btn-floating green" to={"/post/edit/" + this.props.root_id} onClick={() => console.log("Edit Clicked")}><i className="material-icons">edit</i></Link></li>
              <li><Link to="/"><button title="Delete Post" className="btn-floating red" onClick={() => this.props.delete_post(currentPost.id)}><i className="material-icons">block</i></button></Link></li>
            </ul>
          </div>

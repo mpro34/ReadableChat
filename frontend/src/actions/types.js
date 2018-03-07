@@ -3,6 +3,7 @@ export const ADD_POST = 'ADD_POST';
 export const DELETE_POST = 'DELETE_POST';
 export const EDIT_POST = 'EDIT_POST';
 export const GET_DETAILS_OF_POST = 'GET_DETAILS_OF_POST'; //
+export const GET_COMMENTS_OF_POST = 'GET_COMMENTS_OF_POST'; //
 export const VOTE_FOR_POST = 'VOTE_FOR_POST'; //
 
 export const GET_ALL_CATEGORIES = 'GET_ALL_CATEGORIES';
