@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getAllPosts, getAllComments, deleteComment } from '../../actions';
+import { getAllPosts, getAllComments, deleteComment, voteForComment } from '../../actions';
 import shortid from 'shortid';
 
 class PostComments extends Component {
@@ -33,6 +33,19 @@ class PostComments extends Component {
                     <i className="material-icons tiny">close</i>
                   </button>
                   <div className="col s8 offset-s2">
+
+                    <div className="col s12">
+                      <p>
+                        Score: {comment ? comment.voteScore : "0.0"} {'     '}
+                        <button className="btn-small waves-effect waves-light blue" onClick={() => this.props.vote_for_comment("upVote", comment.id)}>
+                          <i className="material-icons tiny">expand_less</i>
+                        </button>
+                        <button className="btn-small waves-effect waves-light blue" onClick={() => this.props.vote_for_comment("downVote", comment.id)}>
+                          <i className="material-icons tiny">expand_more</i>
+                        </button>
+                      </p>
+                    </div>
+
                     <div className="card-panel white">
                       <span className="black-text">
                         <p>From: {comment.author}</p>
@@ -59,7 +72,8 @@ const mapDispatchToProps = dispatch => {
   return {
     get_all_posts: () => dispatch(getAllPosts()),
     get_all_comments: (id) => dispatch(getAllComments(id)),
-    delete_comment: (id) => dispatch(deleteComment(id))
+    delete_comment: (id) => dispatch(deleteComment(id)),
+    vote_for_comment: (id, vote) => dispatch(voteForComment(id, vote))
   }
 }
 
