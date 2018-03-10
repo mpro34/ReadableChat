@@ -19,17 +19,29 @@ class PostEdit extends Component {
     }
     return (
       <div>
-        <div className={myClass}>
-          <label>{field.label}</label>
-          <input
-            id={field.label}
-            type="text"
-            className="validate"
-            {...field.input}
-          />
+          {
+            myClass === "input-field col s6" ?
+            <div className={myClass}>
+              <label>{field.label}</label>
+              <input
+                disabled
+                id={field.label}
+                type="text"
+                className="validate"
+                {...field.input}
+              /></div> :
+            <div className={myClass}>
+              <label>{"Add prefilled info here"}</label>
+              <input
+                onChange={() => console.log("Changing") }
+                id={field.label}
+                type="text"
+                className="validate"
+                {...field.input}
+              /></div>
+            }
           {field.meta.touched ? field.meta.error : ''}
         </div>
-      </div>
     );
   };
 
